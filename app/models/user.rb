@@ -1,0 +1,77 @@
+# frozen_string_literal: true
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :bigint           not null, primary key
+#  bio                    :string
+#  birthday               :date             not null
+#  education              :string
+#  email                  :string           not null
+#  fname                  :string           not null
+#  gender                 :string           not null
+#  hometown               :string
+#  lname                  :string           not null
+#  name_pronunciation     :string
+#  password_digest        :string           not null
+#  session_token          :string           not null
+#  username               :string           not null
+#  website                :string
+#  work                   :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  relationship_status_id :string
+#
+# Indexes
+#
+#  index_users_on_email          (email) UNIQUE
+#  index_users_on_session_token  (session_token) UNIQUE
+#  index_users_on_username       (username) UNIQUE
+#
+
+class User < ApplicationRecord
+  include BCrypt
+
+  validates :fname, :lname, :username, :email, :birthday, :gender,
+            :password_digest, :session_token, presence: true
+  validates :username, :email, :session_token, uniqueness: true
+  validates :password, length: { minimum: 6, allow_nil: true }
+
+  after_initialize :ensure_session_token, :ensure_username, :ensure_capitalized
+
+  attr_reader :password
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user&.is_password?(password) ? user : nil
+  end
+
+  def password=(password)
+    @password = password
+    self.password_digest = Password.create(password)
+  end
+
+  def is_password?(password)
+    Password.new(password_digest).is_password?(password)
+  end
+
+  def reset_session_token!
+    session_token = SsecureRandom::urlsafe_base64
+    save!
+    session_token
+  end
+
+  def ensure_session_token
+    self.session_token ||= SecureRandom::urlsafe_base64
+  end
+
+  def ensure_username
+    self.username ||= SecureRandom::urlsafe_base64
+  end
+
+  def ensure_capitalized
+    self.fname ||= self.fname.capitalize
+    self.lname ||= self.lname.capitalize
+  end
+end
