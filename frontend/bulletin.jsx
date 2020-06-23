@@ -29,7 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   // Testing End
+
+  const removeDropdown = (e) => {
+    if (e.target.className !== 'trigger') {
+      $('#dropdown').removeClass('toggled')
+    }
+  }
   
   const root = document.getElementById('root');
-  ReactDOM.render(<Root store={store} />, root);
+  $(window).on('click', removeDropdown)
+  ReactDOM.render(<Root store={store}/>, root);
 });
