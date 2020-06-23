@@ -37,8 +37,12 @@ class User < ApplicationRecord
             :password_digest, :session_token, presence: true
   validates :username, :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :gender, inclusion: %w[Male Female]
 
   after_initialize :ensure_session_token, :ensure_username, :ensure_capitalized
+
+  has_many :friendships,
+           foreign_key: :friender_id
 
   attr_reader :password
 
@@ -57,17 +61,17 @@ class User < ApplicationRecord
   end
 
   def reset_session_token!
-    session_token = SsecureRandom::urlsafe_base64
+    self.session_token = SecureRandom.urlsafe_base64
     save!
     session_token
   end
 
   def ensure_session_token
-    self.session_token ||= SecureRandom::urlsafe_base64
+    self.session_token ||= SecureRandom.urlsafe_base64
   end
 
   def ensure_username
-    self.username ||= SecureRandom::urlsafe_base64
+    self.username ||= SecureRandom.urlsafe_base64
   end
 
   def ensure_capitalized

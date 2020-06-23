@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: friendships
+#
+#  id          :bigint           not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  friended_id :integer          not null
+#  friender_id :integer          not null
+#
+# Indexes
+#
+#  index_friendships_on_friender_id_and_friended_id  (friender_id,friended_id) UNIQUE
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value
