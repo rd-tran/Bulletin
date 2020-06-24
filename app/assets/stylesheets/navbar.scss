@@ -1,0 +1,74 @@
+#header {
+  color: white;
+  background-color: #3b5998;
+}
+
+#navbar-container {
+  display: flex;
+  justify-content: center;
+}
+
+#navbar-container .logged-out {
+  width: 980px;
+  display: flex;
+  justify-content: space-between;
+  & .text-logo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+  }
+}
+
+#login-form {
+  margin: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  & .input {
+    margin: 0px 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#navbar-container.logged-in {
+  margin-left: 10%;
+  height: 42px;
+  display: flex;
+  justify-content: space-between;
+  & .left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  & .right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    & > * {
+      margin: 8px;
+    }
+  }
+}
+
+.navbar-icon {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer
+}
+
+#dropdown {
+  display: none;
+  top: 30px;
+  right: 10px;
+  position: absolute;
+  &.toggled {
+    display: block;
+  }
+}

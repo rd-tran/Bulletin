@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Logout = ({ logout }) => {
+const LogoutMenu = ({ logout }) => {
   const triggerDropdown = () => {
     $('#dropdown').toggleClass('toggled')
   }
 
   return (
     <div id="logout-menu">
-      <div id="navbar-icon">
-        <span className="trigger" onClick={triggerDropdown}>🔽</span>
+      <div className="navbar-icon trigger"
+      onClick={triggerDropdown}>
+        <span >🔽</span>
         <ul id="dropdown">
           <li>
             <button onClick={logout} id="logout-button">Logout</button>
@@ -19,4 +20,4 @@ const Logout = ({ logout }) => {
   );
 }
 
-export default Logout;
+export default LogoutMenu;

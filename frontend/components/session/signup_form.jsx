@@ -18,9 +18,11 @@ export default class SignupForm extends React.Component {
   
   render() {
     return (
-      <div id="signup-container">
-        <h1>Sign Up</h1>
-        <h2>It's quick and easy.</h2>
+      <div id="signup-form-container">
+        <div id="signup">
+          <h2>Sign Up</h2>
+          <div>It's quick and easy.</div>
+        </div>
         <form id="signup-form" onSubmit={this.handleSubmit}>
           <div id="signup-credentials">
             <div id="signup-name">
@@ -40,14 +42,14 @@ export default class SignupForm extends React.Component {
             </div>
 
             <input
-              type="email"
+              type="text"
               value={this.state.email}
               placeholder="Email"
               onChange={this.handleChange('email')}
             />
 
             <input
-              type="password"
+              type="text"
               value={this.state.password}
               placeholder="New password"
               onChange={this.handleChange('password')}
@@ -82,7 +84,7 @@ export default class SignupForm extends React.Component {
             </label>
           </div>
           
-          <button>Sign Up</button>
+          <button id="signup-button">Sign Up</button>
         </form>
       </div>
     );

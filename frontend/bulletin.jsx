@@ -11,6 +11,7 @@ window.logout = logout;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
+  const root = document.getElementById('root');
 
   if (window.currentUser) {
     const preloadedState = {
@@ -36,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  const root = document.getElementById('root');
-  $(window).on('click', removeDropdown)
+  $(window).on('click', removeDropdown);
   ReactDOM.render(<Root store={store}/>, root);
 });
