@@ -34,6 +34,13 @@
         }
       }
     }
+    & > #signup-other {
+      & > * {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+      }
+    }
     #signup-button {
       background: linear-gradient(#67ae55, #578843);
       background-color: #69a74e;

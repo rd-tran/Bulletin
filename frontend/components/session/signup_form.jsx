@@ -1,23 +1,62 @@
 import React from 'react';
+import {
+  daySelector,
+  monthSelector,
+  yearSelector
+} from '../../util/date_selector';
+
 
 export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.user;
+
+    const initialDate = new Date();
+
+    const initialMonth = () => {
+      const textMonth = [
+        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+      ];
+      const numMonth = initialDate.getMonth();
+      return textMonth[numMonth];
+    };
+    const initialDay = initialDate.getDate();
+    const initialYear = initialDate.getFullYear();
+
+    this.state = {
+      fname: '',
+      lname: '',
+      email: '',
+      password: '',
+      month: initialMonth(),
+      day: initialDay,
+      year: initialYear,
+      gender: ''
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(type) {
-    return (e) => this.setState({ [type]: e.target.value })
+    return (e) => this.setState({ [type]: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.removeErrors();
-    this.props.signup(this.state);
+    
+    const user = ( ({fname, lname, email, password, gender}) => (
+      {fname, lname, email, password, gender}
+    ))(this.state);
+    const { month, day, year } = this.state;
+    const birthday = month + ' ' + day + ', ' + year;
+    user.birthday = birthday;
+
+    this.props.signup(user);
   }
   
   render() {
+    const { month, day, year } = this.state;
+
     const form = (
       <form id="signup-form" onSubmit={this.handleSubmit}>
         <div id="signup-credentials">
@@ -53,31 +92,48 @@ export default class SignupForm extends React.Component {
         </div>
         
         <div id="signup-other">
-          <label>Birthday
-            <input
-              type="date"
-              value={this.state.birthday}
-              onChange={this.handleChange('birthday')}
-              />
-          </label>
+          <label htmlFor="birthday">Birthday</label>
+          <div id="birthday">
+            {
+              monthSelector(
+                month,
+                this.handleChange('month')
+              )
+            }
+            {
+              daySelector(
+                day,
+                this.handleChange('day')
+              )
+            }
+            {
+              yearSelector(
+                year,
+                this.handleChange('year')
+              )
+            }
+          </div>
 
-          <label>Gender
-            <label>
+          <label htmlFor="signup-gender">Gender</label>
+          <div id="signup-gender">
+            <label>Female
               <input
                 type="radio"
+                name="gender"
                 value="Female"
-                onChange={this.handleChange('Gender')}
+                onChange={this.handleChange('gender')}
               />
             </label>
 
-            <label>
+            <label>Male
               <input
                 type="radio"
+                name="gender"
                 value="Male"
-                onChange={this.handleChange('Gender')}
+                onChange={this.handleChange('gender')}
               />
             </label>
-          </label>
+          </div>
         </div>
         
         <button id="signup-button">Sign Up</button>

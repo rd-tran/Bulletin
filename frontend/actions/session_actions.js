@@ -27,7 +27,7 @@ export const receiveLoginErrors = (errors) => ({
 export const signup = user => dispatch => (
   SessionApiUtil.signup(user)
     .then( user => {
-      return dispatch(logoutCurrentUser(user));
+      return dispatch(receiveCurrentUser(user));
     })
     .fail( response => {
       const errors = response.responseJSON;

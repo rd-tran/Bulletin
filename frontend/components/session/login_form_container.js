@@ -13,7 +13,7 @@ const mSTP = (state) => ({
 
 const mDTP = (dispatch) => ({
   login: (user) => dispatch(login(user)),
-  removeErrors: () => dispatch(removeErrors())
+  removeErrors: () => dispatch(removeErrors)
 });
 
 export default connect(mSTP, mDTP)(LoginForm);
