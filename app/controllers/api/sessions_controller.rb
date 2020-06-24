@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render 'api/users/create'
     else
-      message = if User.find_by({ username: username })
+      message = if User.find_by({ email: email })
                   ['The password you’ve entered is incorrect.']
                 else
                   ['The username you’ve entered doesn’t match any account.']

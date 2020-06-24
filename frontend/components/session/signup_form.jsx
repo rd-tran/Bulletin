@@ -13,79 +13,96 @@ export default class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.removeErrors();
     this.props.signup(this.state);
   }
   
   render() {
+    const form = (
+      <form id="signup-form" onSubmit={this.handleSubmit}>
+        <div id="signup-credentials">
+          <div id="signup-name">
+            <input
+              type="text"
+              value={this.state.fname}
+              placeholder="First name"
+              onChange={this.handleChange('fname')}
+            />
+
+            <input
+              type="text"
+              value={this.state.lname}
+              placeholder="Last name"
+              onChange={this.handleChange('lname')}
+            />
+          </div>
+
+          <input
+            type="text"
+            value={this.state.email}
+            placeholder="Email"
+            onChange={this.handleChange('email')}
+          />
+
+          <input
+            type="text"
+            value={this.state.password}
+            placeholder="New password"
+            onChange={this.handleChange('password')}
+          />
+        </div>
+        
+        <div id="signup-other">
+          <label>Birthday
+            <input
+              type="date"
+              value={this.state.birthday}
+              onChange={this.handleChange('birthday')}
+              />
+          </label>
+
+          <label>Gender
+            <label>
+              <input
+                type="radio"
+                value="Female"
+                onChange={this.handleChange('Gender')}
+              />
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                value="Male"
+                onChange={this.handleChange('Gender')}
+              />
+            </label>
+          </label>
+        </div>
+        
+        <button id="signup-button">Sign Up</button>
+      </form>
+    );
+
+    const errors = (
+      <ul id="signup-errors">
+        { this.props.errors.map( (error, idx) => {
+            return (
+              <li key={idx}>{error}</li>
+            );
+          })
+        }
+      </ul>
+    );
+
     return (
       <div id="signup-form-container">
         <div id="signup">
           <h2>Sign Up</h2>
           <div>It's quick and easy.</div>
         </div>
-        <form id="signup-form" onSubmit={this.handleSubmit}>
-          <div id="signup-credentials">
-            <div id="signup-name">
-              <input
-                type="text"
-                value={this.state.fname}
-                placeholder="First name"
-                onChange={this.handleChange('fname')}
-              />
-
-              <input
-                type="text"
-                value={this.state.lname}
-                placeholder="Last name"
-                onChange={this.handleChange('lname')}
-              />
-            </div>
-
-            <input
-              type="text"
-              value={this.state.email}
-              placeholder="Email"
-              onChange={this.handleChange('email')}
-            />
-
-            <input
-              type="text"
-              value={this.state.password}
-              placeholder="New password"
-              onChange={this.handleChange('password')}
-            />
-          </div>
-          
-          <div id="signup-other">
-            <label>Birthday
-              <input
-                type="date"
-                value={this.state.birthday}
-                onChange={this.handleChange('birthday')}
-                />
-            </label>
-
-            <label>Gender
-              <label>
-                <input
-                  type="radio"
-                  value="Female"
-                  onChange={this.handleChange('Gender')}
-                />
-              </label>
-
-              <label>
-                <input
-                  type="radio"
-                  value="Male"
-                  onChange={this.handleChange('Gender')}
-                />
-              </label>
-            </label>
-          </div>
-          
-          <button id="signup-button">Sign Up</button>
-        </form>
+        { form }
+        { errors }
       </div>
     );
   }
