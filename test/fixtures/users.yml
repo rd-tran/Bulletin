@@ -4,7 +4,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  bio                    :string
-#  birthday               :date             not null
+#  birthday               :string           not null
 #  education              :string
 #  email                  :string           not null
 #  fname                  :string           not null

@@ -10,8 +10,7 @@
 #
 # Indexes
 #
-#  index_friendships_on_friender_id_and_friended_id  (friender_id,friended_id
-#   UNIQUE
+#  index_friendships_on_friender_id_and_friended_id  (friender_id,friended_id) UNIQUE
 #
 class Friendship < ApplicationRecord
   validates :friender_id, :friended_id, presence: true

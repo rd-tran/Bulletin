@@ -38,7 +38,6 @@ export const updateUser = (user) => (dispatch) => {
     UserApiUtil.updateUser(user)
       .then( user => dispatch(receiveUser(user)))
       .fail( response => {
-        debugger
         const errors = response.responseJSON;
         return dispatch(receiveLoginErrors(errors));
       })

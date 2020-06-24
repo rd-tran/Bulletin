@@ -16,8 +16,8 @@
   font-weight: 0;
   & .text-logo {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 38px;
+    font-weight: 550;
   }
 }
 
@@ -61,8 +61,10 @@
   display: flex;
   align-content: center;
   justify-content: center;
-  position: relative;
-  cursor: pointer
+  &.trigger {
+    position: relative;
+    cursor: pointer
+  }
 }
 
 #dropdown {

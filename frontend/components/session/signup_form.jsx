@@ -58,7 +58,7 @@ export default class SignupForm extends React.Component {
     const { month, day, year } = this.state;
 
     const form = (
-      <form id="signup-form" onSubmit={this.handleSubmit}>
+      <form id="signup-form">
         <div id="signup-credentials">
           <div id="signup-name">
             <input
@@ -92,51 +92,71 @@ export default class SignupForm extends React.Component {
         </div>
         
         <div id="signup-other">
-          <label htmlFor="birthday">Birthday</label>
-          <div id="birthday">
-            {
-              monthSelector(
-                month,
-                this.handleChange('month')
-              )
-            }
-            {
-              daySelector(
-                day,
-                this.handleChange('day')
-              )
-            }
-            {
-              yearSelector(
-                year,
-                this.handleChange('year')
-              )
-            }
+          <div id="signup-birthday">
+            <div className="label">Birthday</div>
+            <div id="birthday-selectors">
+              {
+                monthSelector(
+                  month,
+                  this.handleChange('month')
+                  )
+                }
+              {
+                daySelector(
+                  day,
+                  this.handleChange('day')
+                  )
+                }
+              {
+                yearSelector(
+                  year,
+                  this.handleChange('year')
+                  )
+                }
+            </div>
           </div>
-
-          <label htmlFor="signup-gender">Gender</label>
+          
           <div id="signup-gender">
-            <label>Female
-              <input
-                type="radio"
-                name="gender"
-                value="Female"
-                onChange={this.handleChange('gender')}
-              />
-            </label>
+            <div className="label">Gender</div>
+            <div id="signup-gender">
+              <span>
+                <input
+                  id="gender-female"
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  onChange={this.handleChange('gender')}
+                />
+                <label htmlFor="gender-female">Female</label>
+              </span>
 
-            <label>Male
-              <input
-                type="radio"
-                name="gender"
-                value="Male"
-                onChange={this.handleChange('gender')}
-              />
-            </label>
+              <span>
+                <input
+                  id="gender-male"
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  onChange={this.handleChange('gender')}
+                />
+                <label htmlFor="gender-male">Male</label>
+              </span>
+            </div>
           </div>
         </div>
         
-        <button id="signup-button">Sign Up</button>
+        <div id="signup-buttons">
+          <button
+            id="signup-button"
+            className="button"
+            onClick={this.handleSubmit}
+          >Sign Up</button>
+
+          <button
+            id="demo-button"
+            className="button"
+            onClick={this.demoLogin}
+          >Demo</button>
+        </div>
       </form>
     );
 
@@ -152,13 +172,15 @@ export default class SignupForm extends React.Component {
     );
 
     return (
-      <div id="signup-form-container">
-        <div id="signup">
-          <h2>Sign Up</h2>
-          <div>It's quick and easy.</div>
+      <div id="logged-out-main">
+        <div id="signup-form-container">
+          <div id="signup">
+            <h2>Sign Up</h2>
+            <div>It's quick and easy.</div>
+          </div>
+          { form }
+          { errors }
         </div>
-        { form }
-        { errors }
       </div>
     );
   }
