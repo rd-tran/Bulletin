@@ -1,10 +1,6 @@
-# frozen_string_literal: true
-
-class Api::SessionsController < ApplicationController
-  def create
-    email = params[:user][:email]
-    password = params[:user][:password]
-    @user = User.find_by_credentials(email, password)
+class Api::DemosController < ApplicationController
+  def show
+    @user = User.find_by_credentials('test@gmail.com', 'password')
 
     if @user
       login(@user)
@@ -19,15 +15,6 @@ class Api::SessionsController < ApplicationController
           }
         end
       render json: message, status: 422
-    end
-  end
-
-  def destroy
-    if current_user
-      logout
-      render json: {}
-    else
-      render json: {}, status: 404
     end
   end
 end

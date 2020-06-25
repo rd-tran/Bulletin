@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
 class Api::UsersController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
   def create
     @user = User.new(user_params)
@@ -14,7 +12,36 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :create
     else
-      render json: @user.errors.full_messages, status: 422
+      errors = @user.errors.messages.keys.map do |key|
+        case key
+        when :fname
+          [key.to_s, "What's your name?"]
+        when :lname
+          [key.to_s, "What's your name?"]
+        when :email
+          [
+            key.to_s,
+            "You'll need this when you lof in and if you ever need to reset your password."
+          ]
+        when :password
+          [
+            key.to_s,
+            'Enter a combination of at least six numbers, letters and punctuation marks (like ! and &)'
+          ]
+        when :birthday
+          [
+            key.to_s,
+            'Select your birthday. You can change who can see this later.'
+          ]
+        when :gender
+          [
+            key.to_s,
+            'Please choose a gender. You can change who can see this later.'
+          ]
+        end
+      end
+
+      render json: errors.to_h, status: 422
     end
   end
 

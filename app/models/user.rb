@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def ensure_capitalized
-    self.fname ||= self.fname.capitalize
-    self.lname ||= self.lname.capitalize
+    self.fname ||= self.fname.capitalize if self.fname
+    self.lname ||= self.lname.capitalize if self.lname
   end
 end

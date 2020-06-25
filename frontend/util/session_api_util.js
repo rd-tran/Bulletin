@@ -24,3 +24,10 @@ export const logout = () => {
     method: "DELETE",
   });
 };
+
+export const demoLogin = () => {
+  return $.ajax({
+    url: "api/demos",
+    method: 'GET'
+  });
+}

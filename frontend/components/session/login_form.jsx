@@ -42,21 +42,21 @@ export default class LoginForm extends React.Component {
       </form>
     );
 
-    const errors = (
-      <ul id="login-errors">
-        { this.props.errors.map( (error, idx) => {
-            return (
-              <li key={idx}>{error}</li>
-            );
-          })
-        }
-      </ul>
-    )
+    // const errors = (
+    //   <ul id="login-errors">
+    //     { this.props.errors.map( (error, idx) => {
+    //         return (
+    //           <li key={idx}>{error}</li>
+    //         );
+    //       })
+    //     }
+    //   </ul>
+    // )
 
     return (
       <div id="login-form-container">
         { form }
-        { errors }
+        {/* { errors } */}
       </div>
     );
   }

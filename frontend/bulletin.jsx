@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $('#dropdown').removeClass('toggled')
     }
   }
-  
   $(window).on('click', removeDropdown);
+
   ReactDOM.render(<Root store={store}/>, root);
 });

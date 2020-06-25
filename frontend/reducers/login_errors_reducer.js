@@ -4,7 +4,7 @@ import {
 } from '../actions/session_actions';
 import { REMOVE_ERRORS } from '../actions/remove_error_actions';
 
-const _nullErrors = [];
+const _nullErrors = {};
 
 const LoginErrorsReducer = (state = _nullErrors, action) => {
   switch (action.type) {
