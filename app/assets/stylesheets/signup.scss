@@ -51,6 +51,9 @@
         border: 1px solid #bdc7d8;
         border-radius: 5px
       }
+      &[type="radio"] {
+        cursor: pointer;
+      }
     }
     & .label {
       color: #90949c;
@@ -64,6 +67,7 @@
       height: 30px;
       padding: 5px 12px 5px 5px;
       border: 1px solid #ccd0d5;
+      cursor: pointer;
       #birthday-month {
         width:71px;
       }
@@ -106,7 +110,7 @@
       position: relative;
       width: 100%;
     }
-    & > #signup-gender {
+    & #signup-gender {
       display: inline-block;
       position: relative;
       width: 100%;
@@ -128,6 +132,7 @@
         font-size: 18px;
         line-height: 18px;
         padding: 0 10px 0 3px;
+        cursor: pointer;
       }
     }
     & #signup-buttons {
@@ -150,6 +155,9 @@
         font-size: 19px;
         text-align: center;
         margin: 10px 0px;
+        &:hover {
+          filter: brightness(105%);
+        }
       }
     }
   }

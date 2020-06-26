@@ -27,7 +27,9 @@ export default class NavBar extends React.Component {
     return (
       <div id="navbar-container">
         <div className="logged-out">
-          <h1 className="text-logo">bulletin</h1>
+          <a href="/">
+            <h1 className="text-logo">bulletin</h1>
+          </a>
           <LoginFormContainer />
         </div>
       </div>
