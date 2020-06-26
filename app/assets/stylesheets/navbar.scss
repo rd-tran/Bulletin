@@ -37,6 +37,10 @@
         display: flex;
         flex-direction: column;
       }
+      input {
+        width: 142px;
+        padding-bottom: 4px;
+      }
     }
     .login-button {
       font-size: 12px;

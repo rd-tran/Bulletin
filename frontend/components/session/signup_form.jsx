@@ -125,7 +125,8 @@ export default class SignupForm extends React.Component {
   }
   
   render() {
-    const {
+    const { errors } = this.props;
+    let {
       month,
       day,
       year,
@@ -140,7 +141,21 @@ export default class SignupForm extends React.Component {
       passwordErrorIcon,
       genderErrorIcon
     } = this.state;
-    const { errors } = this.props;
+
+    if (!Object.values(errors).length) {
+      [
+        fnameErrorBorder,
+        lnameErrorBorder,
+        emailErrorBorder,
+        passwordErrorBorder,
+        genderErrorBorder,
+        fnameErrorIcon,
+        lnameErrorIcon,
+        emailErrorIcon,
+        passwordErrorIcon,
+        genderErrorIcon
+      ] = ['', '', '', '', '', '', '', '', '', ''];
+    }
 
     const showFnameErrorBorder = fnameErrorBorder ? 'error-border' : '';
     const showLnameErrorBorder = lnameErrorBorder ? 'error-border' : '';

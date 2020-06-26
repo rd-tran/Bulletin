@@ -80,15 +80,24 @@ export default class LoginForm extends React.Component {
   }
   
   render() {
-    const {
-      email,
+    const { errors } = this.props;
+    let { email,
       password,
       emailErrorBorder,
       passwordErrorBorder,
       emailErrorIcon,
       passwordErrorIcon
     } = this.state;
-    const { errors } = this.props;
+
+    if (!Object.values(errors).length) {
+      [
+        emailErrorBorder,
+        passwordErrorBorder,
+        emailErrorIcon,
+        passwordErrorIcon
+      ] = ['', '', '', ''];
+    }
+
     const showEmailErrorBorder = emailErrorBorder ? 'error-border' : '';
     const showPasswordErrorBorder = passwordErrorBorder ? 'error-border' : '';
     const showEmailErrorIcon = emailErrorIcon ? 'active' : '';
