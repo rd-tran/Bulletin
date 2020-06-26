@@ -18,46 +18,43 @@ export default class LoginForm extends React.Component {
   }
   
   render() {
-    const form = (
-      <form id="login-form" onSubmit={this.handleSubmit}>
-        <div className="input">
-          <h2>Email</h2>
-          <input
-            type="email"
-            value={this.state.email}
-            onChange={this.handleChange('email')}
-          />
+    if (this.props.location.pathname === '/signup') {
+      const navbarForm = (
+        <form id="login-form" onSubmit={this.handleSubmit}>
+          <div className="input">
+            <h2>Email</h2>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.handleChange('email')}
+            />
+          </div>
+  
+          <div className="input">
+            <h2>Password</h2>
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange('password')}
+            />
+          </div>
+          
+          <div >
+            <button className="login-button">Log In</button>
+          </div>
+        </form>
+      );
+
+      return (
+        <div id="login-form-container">
+          { navbarForm }
+          {/* { errors } */}
         </div>
+      );
+  };
+      
 
-        <div className="input">
-          <h2>Password</h2>
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-          />
-        </div>
-        
-        <button>Log In</button>
-      </form>
-    );
 
-    // const errors = (
-    //   <ul id="login-errors">
-    //     { this.props.errors.map( (error, idx) => {
-    //         return (
-    //           <li key={idx}>{error}</li>
-    //         );
-    //       })
-    //     }
-    //   </ul>
-    // )
 
-    return (
-      <div id="login-form-container">
-        { form }
-        {/* { errors } */}
-      </div>
-    );
   }
 };

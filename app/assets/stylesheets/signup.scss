@@ -3,8 +3,6 @@
   display: flex;
   justify-content: space-between;
   padding: 20px 0px 80px 0px;
-  position: relative;
-  width: 980px;
 }
 
 #signup-form-container {
@@ -299,7 +297,7 @@
   z-index: 202;
   top: 9px;
   right: 9px;
-  background: image-url("error_icon.png");
+  background: image-url("error-icon.png");
   background-size: 21px;
   background-repeat: no-repeat;
   &.fname {

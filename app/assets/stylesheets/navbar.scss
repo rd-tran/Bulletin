@@ -1,16 +1,18 @@
 #header {
+  min-width: 980px;
   color: white;
   background-color: #3b5998;
+  display: flex;
+  justify-content: center;
 }
 
 #navbar-container {
-  display: flex;
-  justify-content: center;
-  vertical-align: bottom;
+  width: 980px;
 }
 
 #navbar-container .logged-out {
-  width: 980px;
+  display: flex;
+  justify-content: space-between;
   padding: 13px 0px 13px 0px;
   display: flex;
   justify-content: space-between;
@@ -22,19 +24,23 @@
     font-weight: 550;
     padding: 6px 0px 0px 0px;
   }
-}
-
-#login-form {
-  margin: 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  & .input {
-    margin: 0px 8px;
+  #login-form {
+    margin: 8px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    &.input {
+      padding: 0 0 0 14px;
+    }
+    .login-button {
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+      background-color: initial;
+    }
   }
 }
+
 
 #navbar-container.logged-in {
   margin-left: 10%;
