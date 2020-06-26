@@ -20,10 +20,6 @@ const App = () => {
             path="/signup"
             component={SignupFormContainer}
           />
-          <AuthRoute exact={true}
-            path="/login"
-            component={LoginFormContainer}
-          />
           <Redirect to ="/" />
         </Switch>
       </section>
