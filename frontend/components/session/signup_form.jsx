@@ -33,16 +33,16 @@ export default class SignupForm extends React.Component {
       day: initialDay,
       year: initialYear,
       gender: '',
-      fnameError: false,
-      lnameError: false,
-      emailError: false,
-      passwordError: false,
-      genderError: false,
-      showfnameError: false,
-      showlnameError: false,
-      showemailError: false,
-      showpasswordError: false,
-      showgenderError: false
+      fnameErrorBorder: false,
+      lnameErrorBorder: false,
+      emailErrorBorder: false,
+      passwordErrorBorder: false,
+      genderErrorBorder: false,
+      fnameErrorIcon: false,
+      lnameErrorIcon: false,
+      emailErrorIcon: false,
+      passwordErrorIcon: false,
+      genderErrorIcon: false
     };
     this.demoLogin = this.demoLogin.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -71,8 +71,8 @@ export default class SignupForm extends React.Component {
         const updateErrorState = {};
 
         for (let key in this.props.errors) {
-          updateErrorState[`${key}Error`] = true;
-          updateErrorState[`show${key}Error`] = true;
+          updateErrorState[`${key}ErrorBorder`] = true;
+          updateErrorState[`${key}ErrorIcon`] = true;
         }
 
         this.setState(updateErrorState);
@@ -80,41 +80,41 @@ export default class SignupForm extends React.Component {
   }
 
   handleFocus(e) {
-    const type = e.target.classList[0];
-    if (this.props.errors[type] || e.target.type == 'radio') {
-      const typeError = `${e.target.classList[0]}Error`;
-      const showTypeError = `show${type}Error`;
-      $(`.errors.${type}`).removeClass('active')
+    const type = e.target.classList[1];
+    if (this.props.errors[type] || !e.target.type == 'radio') {
+      const typeErrorBorder = `${type}ErrorBorder`;
+      const typeErrorIcon = `${type}ErrorIcon`;
+      $(`.signup.errors.${type}`).removeClass('active')
       this.setState({
-        [typeError]: false,
-        [showTypeError]: false
+        [typeErrorBorder]: false,
+        [typeErrorIcon]: false
       });
     }
   }
 
   handleBlur(e) {
-    const type = e.target.classList[0];
+    const type = e.target.classList[1];
     if (this.props.errors[type] && 
-      (!e.target.value.length || e.target.type === 'radio')) {
-      const typeError = `${e.target.classList[0]}Error`;
-      const showTypeError = `show${type}Error`;
-      $(`.errors.${type}`).removeClass('active')
+      (!e.target.value.length )) {
+      const typeErrorBorder = `${type}ErrorBorder`;
+      const typeErrorIcon = `${type}ErrorIcon`;
+      $(`.signup.errors.${type}`).removeClass('active')
       this.setState({
-        [typeError]: true,
-        [showTypeError]: true
+        [typeErrorBorder]: true,
+        [typeErrorIcon]: true
       });
     }
   }
 
   showError(e) {
-    const type = e.target.classList[0];
-    const typeError = `${type}Error`;
-    const showTypeError = `show${type}Error`;
-    $(`input[class*='${type}']`).focus();
-    $(`.errors.${type}`).addClass('active')
+    const type = e.target.classList[1];
+    const typeErrorBorder = `${type}ErrorBorder`;
+    const typeErrorIcon = `${type}ErrorIcon`;
+    $(`input.signup.${type}`).focus();
+    $(`.signup.errors.${type}`).addClass('active')
     this.setState({ 
-      [typeError]: true,
-      [showTypeError]: true
+      [typeErrorBorder]: false,
+      [typeErrorIcon]: false
     });
   }
 
@@ -129,41 +129,41 @@ export default class SignupForm extends React.Component {
       month,
       day,
       year,
-      fnameError,
-      lnameError,
-      emailError,
-      passwordError,
-      genderError,
-      showfnameError,
-      showlnameError,
-      showemailError,
-      showpasswordError,
-      showgenderError
+      fnameErrorBorder,
+      lnameErrorBorder,
+      emailErrorBorder,
+      passwordErrorBorder,
+      genderErrorBorder,
+      fnameErrorIcon,
+      lnameErrorIcon,
+      emailErrorIcon,
+      passwordErrorIcon,
+      genderErrorIcon
     } = this.state;
     const { errors } = this.props;
 
-    const fnameErrorBorder = fnameError ? 'error-border' : '';
-    const lnameErrorBorder = lnameError ? 'error-border' : '';
-    const emailErrorBorder = emailError ? 'error-border' : '';
-    const passwordErrorBorder = passwordError ? 'error-border' : '';
-    const genderErrorBorder = genderError ? 'error-border' : '';
+    const showFnameErrorBorder = fnameErrorBorder ? 'error-border' : '';
+    const showLnameErrorBorder = lnameErrorBorder ? 'error-border' : '';
+    const showEmailErrorBorder = emailErrorBorder ? 'error-border' : '';
+    const showPasswordErrorBorder = passwordErrorBorder ? 'error-border' : '';
+    const showGenderErrorBorder = genderErrorBorder ? 'error-border' : '';
     
-    const renderFnameError = showfnameError ? 'active' : '';
-    const renderLnameError = showlnameError ? 'active' : '';
-    const renderEmailError = showemailError ? 'active' : '';
-    const renderPasswordError = showpasswordError ? 'active' : '';
-    const renderGenderError = showgenderError ? 'active' : '';
+    const showFnameErrorIcon = fnameErrorIcon ? 'active' : '';
+    const showLnameErrorIcon = lnameErrorIcon ? 'active' : '';
+    const showEmailErrorIcon = emailErrorIcon ? 'active' : '';
+    const showPasswordErrorIcon = passwordErrorIcon ? 'active' : '';
+    const showGenderErrorIcon = genderErrorIcon ? 'active' : '';
 
     const form = (
       <form id="signup-form">
         <div id="signup-name" className="credentials">
           <div id="signup-fname">
             <div id="signup-fname-errors"
-              className="errors fname">
+              className="signup errors fname">
               { errors.fname }
             </div>
             <input
-              className={`fname ${fnameErrorBorder}`}
+              className={`signup fname ${showFnameErrorBorder}`}
               type="text"
               value={this.state.fname}
               placeholder="First name"
@@ -172,19 +172,20 @@ export default class SignupForm extends React.Component {
               onBlur={this.handleBlur}
             />
             <ErrorIcon
-              type="fname"
-              active={renderFnameError}
+              formType="signup"
+              inputType="fname"
+              active={showFnameErrorIcon}
               showError={this.showError}
             />
           </div>
 
           <div id="signup-lname">
             <div id="signup-lname-errors"
-              className="errors lname">
+              className="signup errors lname">
               { errors.lname }
             </div>
             <input
-              className={`lname ${lnameErrorBorder}`}
+              className={`signup lname ${showLnameErrorBorder}`}
               type="text"
               value={this.state.lname}
               placeholder="Last name"
@@ -193,8 +194,9 @@ export default class SignupForm extends React.Component {
               onBlur={this.handleBlur}
             />
             <ErrorIcon
-              type="lname"
-              active={renderLnameError}
+              formType="signup"
+              inputType="lname"
+              active={showLnameErrorIcon}
               showError={this.showError}
             />
           </div>
@@ -203,7 +205,7 @@ export default class SignupForm extends React.Component {
         <div id="signup-email-container" className="credentials">
           <div id="signup-email">
             <input
-              className={`email ${emailErrorBorder}`}
+              className={`signup email ${showEmailErrorBorder}`}
               type="text"
               value={this.state.email}
               placeholder="Email"
@@ -211,12 +213,13 @@ export default class SignupForm extends React.Component {
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
             />
-            <div id="signup-email-errors" className="errors email">
+            <div id="signup-email-errors" className="signup errors email">
               { errors.email }
             </div>
             <ErrorIcon
-              type="email"
-              active={renderEmailError}
+              formType="signup"
+              inputType="email"
+              active={showEmailErrorIcon}
               showError={this.showError}
             />
           </div>
@@ -224,7 +227,7 @@ export default class SignupForm extends React.Component {
 
         <div id="signup-password" className="credentials">
           <input
-            className={`password ${passwordErrorBorder}`}
+            className={`signup password ${showPasswordErrorBorder}`}
             type="text"
             value={this.state.password}
             placeholder="New password"
@@ -232,12 +235,13 @@ export default class SignupForm extends React.Component {
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
           />
-          <div id="signup-password-errors" className="errors password">
+          <div id="signup-password-errors" className="signup errors password">
             { errors.password }
           </div>
           <ErrorIcon
-            type="password"
-            active={renderPasswordError}
+            formType="signup"
+            inputType="password"
+            active={showPasswordErrorIcon}
             showError={this.showError}
           />
         </div>
@@ -268,13 +272,13 @@ export default class SignupForm extends React.Component {
           
         <div id="signup-gender">
           <div className="label">Gender</div>
-          <div id="signup-gender-errors" className="errors gender">
+          <div id="signup-gender-errors" className="signup errors gender">
             { errors.gender }
           </div>
-          <span className={`gender ${genderErrorBorder}`}>
+          <span className={`gender ${showGenderErrorBorder}`}>
             <input
               id="gender-female"
-              className='gender'
+              className='signup gender'
               type="radio"
               name="gender"
               value="Female"
@@ -285,10 +289,10 @@ export default class SignupForm extends React.Component {
             <label htmlFor="gender-female">Female</label>
           </span>
 
-          <span className={`gender ${genderErrorBorder}`}>
+          <span className={`gender ${showGenderErrorBorder}`}>
             <input
               id="gender-male"
-              className='gender'
+              className='signup gender'
               type="radio"
               name="gender"
               value="Male"
@@ -300,8 +304,9 @@ export default class SignupForm extends React.Component {
           </span>
 
           <ErrorIcon
-            type="gender"
-            active={renderGenderError}
+            formType="signup"
+            inputType="gender"
+            active={showGenderErrorIcon}
             showError={this.showError}
           />
         </div>

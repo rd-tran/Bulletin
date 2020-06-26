@@ -28,15 +28,34 @@
     margin: 8px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    &.input {
+    align-items: flex-end;
+    justify-content: space-apart;
+    .input-container {
+      position: relative;
       padding: 0 0 0 14px;
+      label {
+        display: flex;
+        flex-direction: column;
+      }
     }
     .login-button {
       font-size: 12px;
       font-weight: bold;
       color: white;
-      background-color: initial;
+      background-color: #4267b2;;
+      height: 18px;
+      margin-left: 14px;
+      padding: 2px 6px;
+      border: 1px solid #29487d;
+      border-radius: 2px;
+      text-shadow: none;
+      button {
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        border: none;
+        background-color: initial;
+      }
     }
   }
 }
