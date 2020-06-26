@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
         when :email
           [
             key.to_s,
-            "You'll need this when you lof in and if you ever need to reset your password."
+            "You'll need this when you log in and if you ever need to reset your password."
           ]
         when :password
           [

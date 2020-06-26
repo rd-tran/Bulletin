@@ -31,28 +31,21 @@ button {
   border-radius: 5px
 }
 
-textarea, input {
-  background: white;
-  border: 1px solid;
-  border-color: #ccd0d5;
-  border-radius: 5px
-}
-
 textarea:focus, input:focus{
   outline: none;
 }
 
-input {
-  border-color: #bdc7d8;
-  border-top-color: rgb(189, 199, 216);
-  border-right-color: rgb(189, 199, 216);
-  border-bottom-color: rgb(189, 199, 216);
-  border-left-color: rgb(189, 199, 216);
-  border-radius: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  margin: 0;
-  padding: 0;
-}
+// input {
+//   border-color: #bdc7d8;
+//   border-top-color: rgb(189, 199, 216);
+//   border-right-color: rgb(189, 199, 216);
+//   border-bottom-color: rgb(189, 199, 216);
+//   border-left-color: rgb(189, 199, 216);
+//   border-radius: 5px;
+//   border-top-left-radius: 5px;
+//   border-top-right-radius: 5px;
+//   border-bottom-right-radius: 5px;
+//   border-bottom-left-radius: 5px;
+//   margin: 0;
+//   padding: 0;
+// }
