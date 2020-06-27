@@ -131,7 +131,7 @@ export default class LoginForm extends React.Component {
           <label>Password
             <input
               className={`login password ${showPasswordErrorBorder}`}
-              type="text"
+              type="password"
               value={password}
               onChange={this.handleChange('password')}
               onFocus={this.handleFocus}

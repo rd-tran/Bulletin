@@ -243,7 +243,7 @@ export default class SignupForm extends React.Component {
         <div id="signup-password" className="credentials">
           <input
             className={`signup password ${showPasswordErrorBorder}`}
-            type="text"
+            type="password"
             value={this.state.password}
             placeholder="New password"
             onChange={this.handleChange('password')}
