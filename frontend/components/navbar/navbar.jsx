@@ -1,30 +1,18 @@
 import React from 'react';
 import LoginFormContainer from '../session/login_form_container';
-import LogoutMenu from '../session/logout_menu';
-import LogoutContainer from '../session/logout_container';
-import { Link } from 'react-router-dom';
+import LeftSide from './left_side';
+import RightSide from './right_side';
 
 export default class NavBar extends React.Component {
   render() {
-    const { history, currentUser, logout } = this.props;
+    const { currentUser, logout } = this.props;
 
     if (currentUser) {
       return (
         <div id="navbar-container" className="logged-in">
           <div className="navbar logged-in">
-            <div className="left">
-              <div className="fb-logo-icon navbar-icon" onClick={() => history.push("/")}>
-              </div>
-              <input
-                className="search"
-                type="text"
-              />
-            </div>
-
-            <div className="right">
-              <Link to="/">Home</Link>
-              <LogoutMenu logout={logout} />
-            </div>
+            <LeftSide />
+            <RightSide logout={logout}/>
           </div>
         </div>
       );
