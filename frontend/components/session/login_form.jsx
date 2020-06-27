@@ -43,10 +43,11 @@ export default class LoginForm extends React.Component {
 
   handleFocus(e) {
     const type = e.target.classList[1];
-    if (this.props.errors[type]) {
+
+    if (this.props.errors[type] && !e.target.value.length) {
       const typeErrorBorder = `${type}ErrorBorder`;
       const typeErrorIcon = `${type}ErrorIcon`;
-      $(`.login.errors.${type}`).removeClass('active')
+      $(`.login.errors.${type}`).addClass('active')
       this.setState({
         [typeErrorBorder]: false,
         [typeErrorIcon]: false
@@ -56,10 +57,12 @@ export default class LoginForm extends React.Component {
 
   handleBlur(e) {
     const type = e.target.classList[1];
+    const typeErrorBorder = `${type}ErrorBorder`;
+    const typeErrorIcon = `${type}ErrorIcon`;
+    
+    $(`.login.errors.${type}`).removeClass('active')
+
     if (this.props.errors[type] && !e.target.value.length) {
-      const typeErrorBorder = `${type}ErrorBorder`;
-      const typeErrorIcon = `${type}ErrorIcon`;
-      $(`.login.errors.${type}`).removeClass('active')
       this.setState({
         [typeErrorBorder]: true,
         [typeErrorIcon]: true

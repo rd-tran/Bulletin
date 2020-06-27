@@ -81,10 +81,18 @@ export default class SignupForm extends React.Component {
 
   handleFocus(e) {
     const type = e.target.classList[1];
-    if (this.props.errors[type] || !e.target.type == 'radio') {
-      const typeErrorBorder = `${type}ErrorBorder`;
-      const typeErrorIcon = `${type}ErrorIcon`;
-      $(`.signup.errors.${type}`).removeClass('active')
+    const typeErrorBorder = `${type}ErrorBorder`;
+    const typeErrorIcon = `${type}ErrorIcon`;
+
+    let notValid;
+    if (e.target.type === 'radio') {
+      notValid = !e.target.checked;
+    } else {
+      notValid = !e.target.value.length;
+    }
+
+    if (this.props.errors[type] && notValid) {
+      $(`.signup.errors.${type}`).addClass('active')
       this.setState({
         [typeErrorBorder]: false,
         [typeErrorIcon]: false
@@ -94,11 +102,19 @@ export default class SignupForm extends React.Component {
 
   handleBlur(e) {
     const type = e.target.classList[1];
-    if (this.props.errors[type] && 
-      (!e.target.value.length )) {
-      const typeErrorBorder = `${type}ErrorBorder`;
-      const typeErrorIcon = `${type}ErrorIcon`;
-      $(`.signup.errors.${type}`).removeClass('active')
+    const typeErrorBorder = `${type}ErrorBorder`;
+    const typeErrorIcon = `${type}ErrorIcon`;
+
+    let notValid;
+    if (e.target.type === 'radio') {
+      notValid = !e.target.checked;
+    } else {
+      notValid = !e.target.value.length;
+    }
+
+    $(`.signup.errors.${type}`).removeClass('active')
+    debugger
+    if (this.props.errors[type] && notValid) {
       this.setState({
         [typeErrorBorder]: true,
         [typeErrorIcon]: true
