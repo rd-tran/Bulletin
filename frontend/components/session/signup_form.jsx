@@ -113,7 +113,6 @@ export default class SignupForm extends React.Component {
     }
 
     $(`.signup.errors.${type}`).removeClass('active')
-    debugger
     if (this.props.errors[type] && notValid) {
       this.setState({
         [typeErrorBorder]: true,
