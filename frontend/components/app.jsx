@@ -9,9 +9,7 @@ import LoginFormContainer from '..//components/session/login_form_container.js';
 const App = () => {
   return (
     <div id="app">
-      <header id="header">
-        <NavBarContainer />
-      </header>
+      <NavBarContainer />
 
       <section id="main-section">
         <Switch>

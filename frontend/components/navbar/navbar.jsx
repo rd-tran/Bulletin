@@ -11,22 +11,28 @@ export default class NavBar extends React.Component {
     if (currentUser) {
       return (
         <div id="navbar-container" className="logged-in">
-          <div className="left">
-            <button className="navbar-icon" onClick={() => history.push("/")}>
-              Logo
-            </button>
-          </div>
-          <div className="right">
-            <Link to="/">Home</Link>
-            <LogoutMenu logout={logout} />
+          <div className="navbar logged-in">
+            <div className="left">
+              <div className="fb-logo-icon navbar-icon" onClick={() => history.push("/")}>
+              </div>
+              <input
+                className="search"
+                type="text"
+              />
+            </div>
+
+            <div className="right">
+              <Link to="/">Home</Link>
+              <LogoutMenu logout={logout} />
+            </div>
           </div>
         </div>
       );
     }
 
     return (
-      <div id="navbar-container">
-        <div className="logged-out">
+      <div id="navbar-container" className="logged-out">
+        <div className="navbar logged-out">
           <a href="/">
             <h1 className="text-logo">bulletin</h1>
           </a>

@@ -9,7 +9,7 @@ const LogoutMenu = ({ logout }) => {
     <div id="logout-menu">
       <div className="navbar-icon trigger"
       onClick={triggerDropdown}>
-        <span className="trigger">🔽</span>
+        <div className="trigger">🔽</div>
         <ul id="dropdown">
           <li>
             <button onClick={logout} id="logout-button">Logout</button>

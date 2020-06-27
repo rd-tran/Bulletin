@@ -1,21 +1,20 @@
-#header {
-  min-width: 980px;
+#navbar-container {
   color: white;
   background-color: #3b5998;
   display: flex;
+}
+
+#navbar-container.logged-out {
+  color: white;
   justify-content: center;
+  min-width: 980px;
 }
 
-#navbar-container {
+.navbar.logged-out {
+  display: flex;
+  justify-content: space-between;
   width: 980px;
-}
-
-#navbar-container .logged-out {
-  display: flex;
-  justify-content: space-between;
   padding: 13px 0px 13px 0px;
-  display: flex;
-  justify-content: space-between;
   font-size: 12px;
   font-weight: 0;
   & .text-logo {
@@ -64,39 +63,47 @@
   }
 }
 
-
 #navbar-container.logged-in {
-  margin-left: 10%;
   height: 42px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar.logged-in {
   display: flex;
   justify-content: space-between;
-  & .left {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-  }
-  & .right {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    & > * {
-      margin: 8px;
-    }
-  }
+  padding: 0px 8px;
+}
+
+.left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.right {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 8px;
 }
 
 .navbar-icon {
   height: 24px;
   width: 24px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
   &.trigger {
     position: relative;
     cursor: pointer
   }
+}
+
+.fb-logo-icon {
+  background: image-url("icons-1.png");
+
+  background-repeat: no-repeat;
+  overflow: hidden;
+  height: 24px;
+  width: 24px;
+  background-position: 0.5px -426px;
+  background-size: 250%;
 }
 
 #dropdown {
