@@ -146,7 +146,7 @@
 }
 
 .friend-request-menu.dropdown-button.icon {
-  background: url('black-friend-requests-icon.png');
+  background: image-url('black-friend-requests-icon.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -158,7 +158,7 @@
     opacity: unset;
   }
   &.active {
-    background: url('white-friend-requests-icon.png');
+    background: image-url('white-friend-requests-icon.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -170,7 +170,7 @@
 }
 
 .message-menu.dropdown-button.icon {
-  background: url('black-messages-icon.png');
+  background: image-url('black-messages-icon.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -182,7 +182,7 @@
     opacity: unset;
   }
   &.active {
-    background: url('white-messages-icon.png');
+    background: image-url('white-messages-icon.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
@@ -194,7 +194,7 @@
 }
 
 .notification-menu.dropdown-button.icon {
-  background: url('black-notifications-icon.png');
+  background: image-url('black-notifications-icon.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -207,7 +207,7 @@
     opacity: unset;
   }
   &.active {
-    background: url('white-notifications-icon.png');
+    background: image-url('white-notifications-icon.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 0px 0px;
