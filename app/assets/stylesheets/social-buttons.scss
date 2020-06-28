@@ -1,0 +1,241 @@
+// .social-buttons-container {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-evenly;
+//   position: relative;
+//   height: 28px;
+//   padding: 0 5px 0 4px;
+//   float: left;
+// }
+
+// .social-button.container {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+//   width: 36px;
+//   float: left;
+// }
+
+// .social-button.margin {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+//   height: 32px;
+//   width: 32px;
+//   margin: 5px 0 6px;
+//   left: 2px;
+// }
+
+// .social-button.link {
+//   display: flex;
+//   align-items: center;
+//   position: relative;
+//   height: 32px;
+//   width: 32px;
+//   margin: 0 2px;
+//   padding: 4px;
+// }
+
+// .social-button.button {
+//   border: none;
+//   &.friend-requests{
+//     background: url(black-friend-requests-icon.png);
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 24px;
+//     left: 2px;
+//     opacity: 55%;
+//   }
+//   &.messages{
+//     background: url(black-messages-icon.png);
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 24px;
+//     left: 2px;
+//     opacity: 55%;
+//   }
+//   &.notifications{
+//     background: url(black-notifications-icon.png);
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 28px;
+//     left: 2px;
+//     opacity: 55%;
+//   }
+// }
+
+// .social-button.button:hover {
+//   opacity: 75% !important;
+// }
+
+// .social-button.button.clicked:hover {
+//   opacity: unset !important;
+// }
+
+// .social-button.button:focus {
+//   outline: none !important;
+// }
+
+// .social-button.button.clicked {
+//   opacity: unset;
+//   &.friend-requests{
+//     background: url('white-friend-requests-icon.png');
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 24px;
+//     left: 2px;
+//   }
+//   &.messages{
+//     background: url('white-messages-icon.png');
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 24px;
+//     left: 2px;
+//     opacity: unset;
+//   }
+//   &.notifications{
+//     background: url('white-notifications-icon.png');
+//     background-size: 100%;
+//     background-repeat: no-repeat;
+//     background-position: 0px 0px;
+//     position: absolute;
+//     width: 24px;
+//     height: 28px;
+//     left: 2px;
+//     opacity: unset;
+//   }
+// }
+
+.social-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  height: 28px;
+  padding: 0 5px 0 4px;
+  float: left;
+}
+
+.social-buttons-container > .container {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  position: relative;
+}
+
+.social-buttons-container .dropdown-button {
+  background-color: #3b5998;
+  margin: 1px 6px;
+  height: 24px;
+  width: 24px;
+}
+
+.friend-request-menu.dropdown-button.icon {
+  background: url('black-friend-requests-icon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  opacity: 55%;
+  &:hover {
+    opacity: unset;
+  }
+  &.active {
+    background: url('white-friend-requests-icon.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    opacity: unset;
+  }
+}
+
+.message-menu.dropdown-button.icon {
+  background: url('black-messages-icon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  opacity: 55%;
+  &:hover {
+    opacity: unset;
+  }
+  &.active {
+    background: url('white-messages-icon.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    opacity: unset;
+  }
+}
+
+.notification-menu.dropdown-button.icon {
+  background: url('black-notifications-icon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  height: 28px;
+  opacity: 55%;
+  &:hover {
+    opacity: unset;
+  }
+  &.active {
+    background: url('white-notifications-icon.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    opacity: unset;
+  }
+}
+
+.social-buttons-container button {
+  outline: none;
+  border: none;
+}
+
+.social-buttons-container button:focus {
+  outline: none;
+}
+
+.social-buttons-container .dropdown-list {
+  display: none;
+  position: absolute;
+  color: #1d2129;
+  background-color: #e9ebee;
+  top: 44px;
+  padding: 5px 0;
+}
+
+.social-buttons-container .dropdown-list.active {
+  display: block;
+}

@@ -362,43 +362,45 @@ export default class SignupForm extends React.Component {
     );
 
     return (
-      <div id="logged-out-main">
-        <div id="logged-out-info">
-          <h2 className="logged-out-info-header">
-            Connect with friends and the world around you on Bulletin.</h2>
+      <div id="main-section" className="logged-out">
+        <div id="logged-out-main">
+          <div id="logged-out-info">
+            <h2 className="logged-out-info-header">
+              Connect with friends and the world around you on Bulletin.</h2>
 
-          <div className="logged-out-info-row-container">
-            <div className="logged-out-info-icon news"></div>
-            <span className="logged-out-info-row">
-              <span className="logged-out-info-row-header">See photos and updates</span>
-              <> from friends in News Feed.</>
-            </span>
+            <div className="logged-out-info-row-container">
+              <div className="logged-out-info-icon news"></div>
+              <span className="logged-out-info-row">
+                <span className="logged-out-info-row-header">See photos and updates</span>
+                <> from friends in News Feed.</>
+              </span>
+            </div>
+
+            <div className="logged-out-info-row-container">
+            <div className="logged-out-info-icon board"></div>
+              <span className="logged-out-info-row">
+                <span className="logged-out-info-row-header">Share what's new</span>
+                <> in your life on your Bulletin Board.</>
+              </span>
+            </div>
+
+            <div className="logged-out-info-row-container">
+              <div className="logged-out-info-icon search"></div>
+              <span className="logged-out-info-row">
+                <span className="logged-out-info-row-header">Find more</span>
+                <> of what you're looking for with Bulletin Search.</>
+              </span>
+            </div>
           </div>
 
-          <div className="logged-out-info-row-container">
-          <div className="logged-out-info-icon board"></div>
-            <span className="logged-out-info-row">
-              <span className="logged-out-info-row-header">Share what's new</span>
-              <> in your life on your Bulletin Board.</>
-            </span>
+          <div id="signup-form-container">
+            <div id="signup">
+              <h2>Sign Up</h2>
+              <div>It's quick and easy.</div>
+            </div>
+            { form }
+            <div className="break-line"></div>
           </div>
-
-          <div className="logged-out-info-row-container">
-            <div className="logged-out-info-icon search"></div>
-            <span className="logged-out-info-row">
-              <span className="logged-out-info-row-header">Find more</span>
-              <> of what you're looking for with Bulletin Search.</>
-            </span>
-          </div>
-        </div>
-
-        <div id="signup-form-container">
-          <div id="signup">
-            <h2>Sign Up</h2>
-            <div>It's quick and easy.</div>
-          </div>
-          { form }
-          <div className="break-line"></div>
         </div>
       </div>
     );

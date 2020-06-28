@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   // Testing End
 
-  const removeDropdown = (e) => {
-    if (e.target.className !== 'trigger') {
-      $('#dropdown').removeClass('toggled')
-    }
-  }
-  $(window).on('click', removeDropdown);
+  // const removeDropdown = (e) => {
+  //   if (e.target.className !== 'trigger') {
+  //     $('#dropdown').removeClass('toggled')
+  //   }
+  // }
+  // $(window).on('click', removeDropdown);
 
   ReactDOM.render(<Root store={store}/>, root);
 });

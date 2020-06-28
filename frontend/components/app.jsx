@@ -11,16 +11,14 @@ const App = () => {
     <div id="app">
       <NavBarContainer />
 
-      <section id="main-section">
-        <Switch>
-          <ProtectedRoute exact path="/" component={HomeContainer}/>
-          <AuthRoute exact={true}
-            path="/signup"
-            component={SignupFormContainer}
-          />
-          <Redirect to ="/" />
-        </Switch>
-      </section>
+      <Switch>
+        <ProtectedRoute exact path="/" component={HomeContainer}/>
+        <AuthRoute exact={true}
+          path="/signup"
+          component={SignupFormContainer}
+        />
+        <Redirect to ="/" />
+      </Switch>
     </div>
   )
 }

@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogoutMenu from '../session/logout_menu';
+import LogoutMenu from './logout_menu';
+import SocialButtons from './social_buttons/social_buttons';
 
 const RightSide = ({ logout }) => {
   return (
     <div className="right">
-      <Link to="/">Home</Link>
+      <div className="navigation-button container">
+        <Link to="/" className="navigation-button button divider">Home</Link>
+      </div>
+      <SocialButtons />
       <LogoutMenu logout={logout} />
     </div>
   );
