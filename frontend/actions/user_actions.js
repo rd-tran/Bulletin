@@ -19,10 +19,12 @@ const receiveUserErrors = (errors) => ({
   errors
 });
 
-export const fetchUsers = () => (dispatch) => {
+export const fetchUsers = (username) => (dispatch) => {
   return (
-    UserApiUtil.fetchUsers()
-      .then( users => dispatch(receiveAllUsers(users)) )
+    UserApiUtil.fetchUsers(username)
+      .then( users => {
+        dispatch(receiveAllUsers(users))
+      })
   );
 };
 
@@ -39,7 +41,7 @@ export const updateUser = (user) => (dispatch) => {
       .then( user => dispatch(receiveUser(user)))
       .fail( response => {
         const errors = response.responseJSON;
-        return dispatch(receiveLoginErrors(errors));
+        return dispatch(receiveUserErrors(errors));
       })
   );
 };

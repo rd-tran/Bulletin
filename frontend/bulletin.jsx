@@ -4,8 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // Testing ajax calls
-import { fetchPosts } from './util/post_api_util';
+import { fetchPosts } from './actions/post_actions';
+import { fetchUsers } from './actions/user_actions';
 window.fetchPosts = fetchPosts;
+window.fetchUsers = fetchUsers
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -13,9 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.currentUser) {
     const preloadedState = {
-      entities: {
-        users: { [window.currentUser.username]: window.currentUser }
-      },
       session: window.currentUser
     };
     store = configureStore(preloadedState);
@@ -24,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  // fetchUsers(store.getState().session.username)(store.dispatch)
+  // fetchPosts(store.getState().session.username, 'newsfeed')(store.dispatch)
+  
   // Testing Start
   window.getState = store.getState;
   window.dispatch = store.dispatch;

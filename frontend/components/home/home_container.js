@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/post_actions'
+import { fetchUsers } from '../../actions/user_actions';
 import Home from './home';
 
 const mSTP = (state) => {
@@ -13,6 +14,7 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return ({
+    fetchUsers: (username) => dispatch(fetchUsers(username)),
     fetchPosts: (username, type) => dispatch(fetchPosts(username, type))
   });
 }

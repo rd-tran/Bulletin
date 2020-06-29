@@ -17,7 +17,7 @@ ryan = User.create(
 )
 
 mochi = User.create(
-  fname: 'Mochi', lname: 'Pomchi', email: 'mochi.pomchi@gmail.com',
+  fname: 'Mochi', lname: 'The Pomchi', email: 'mochi.pomchi@gmail.com',
   password: 'it$Moch1', birthday: '10/14/2018', gender: 'Male'
 )
 

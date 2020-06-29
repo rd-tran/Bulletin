@@ -1,7 +1,23 @@
 # frozen_string_literal: true
 
 class Api::UsersController < ApplicationController
-  def index; end
+  def index
+    user = User.find_by(username: params[:username])
+    friend_usernames = user.friends.map(&:username)
+    posts_on_usernames = user.friends.map(&:authored_posts)
+                             .flatten.map(&:board_username)
+    posts_by_usernames = user.friends.map(&:board_posts)
+                             .flatten.map(&:author_username)
+    usernames = [
+      user.username,
+      *friend_usernames,
+      *posts_on_usernames,
+      *posts_by_usernames
+    ].uniq
+
+    @users = User.where(username: [usernames])
+    render :index
+  end
 
   def show; end
 
@@ -45,8 +61,7 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
   private
 
