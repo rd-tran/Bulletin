@@ -5,7 +5,6 @@ import RightSide from './right_side';
 
 export default class NavBar extends React.Component {
   render() {
-    debugger
     const { currentUser, logout } = this.props;
     
     if (Object.values(currentUser).length) {
