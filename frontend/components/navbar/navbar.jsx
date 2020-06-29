@@ -5,9 +5,10 @@ import RightSide from './right_side';
 
 export default class NavBar extends React.Component {
   render() {
+    debugger
     const { currentUser, logout } = this.props;
-
-    if (currentUser) {
+    
+    if (Object.values(currentUser).length) {
       return (
         <div id="navbar-container" className="logged-in">
           <div className="navbar logged-in">

@@ -4,8 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // Testing ajax calls
-// import { fetchPosts } from './util/post_api_util';
-// window.fetchPosts = fetchPosts;
+import { fetchPosts } from './util/post_api_util';
+window.fetchPosts = fetchPosts;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const preloadedState = {
       entities: {
-        users: { [window.currentUser.id]: window.currentUser }
+        users: { [window.currentUser.username]: window.currentUser }
       },
       session: window.currentUser
     };

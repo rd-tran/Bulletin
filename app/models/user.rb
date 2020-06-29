@@ -42,11 +42,13 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token, :ensure_username, :ensure_capitalized
 
   has_many :authored_posts,
-           foreign_key: :author_id,
+           primary_key: :username,
+           foreign_key: :author_username,
            class_name: :Post
 
   has_many :board_posts,
-           foreign_key: :board_id,
+           primary_key: :username,
+           foreign_key: :board_username,
            class_name: :Post
 
   has_many :friendships,

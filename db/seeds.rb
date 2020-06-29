@@ -27,8 +27,12 @@ Friendship.create(friender_id: ryan.id, friended_id: mochi.id)
 Friendship.create(friender_id: mochi.id, friended_id: ryan.id)
 
 Post.create(
-  author_id: demo.id,
-  board_id: ryan.id,
+  author_username: demo.username,
+  board_username: ryan.username,
   body: 'This is the very first post'
 )
-Post.create(author_id: ryan.id, board_id: mochi.id, body: 'Hey, buddy!')
+Post.create(
+  author_username: ryan.username,
+  board_username: mochi.username,
+  body: 'Hey, buddy!'
+)
