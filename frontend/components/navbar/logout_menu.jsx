@@ -17,7 +17,7 @@ export default class LogoutMenu extends React.Component {
 
   render() {
     const active = this.state.active ? 'active' : false;
-    // debugger
+
     return (
       <div className="navbar-menu container divider">
         <button
@@ -30,7 +30,10 @@ export default class LogoutMenu extends React.Component {
           <li className="navbar-menu dropdown-item">
             <button
               className="navbar-menu dropdown-item button"
-              onClick={this.props.logout}
+              onClick={ () => {
+                $(window).prop("onclick", null).off("click");
+                this.props.logout();
+              }}
             >
               Logout (Thanks for visiting!)
             </button>
