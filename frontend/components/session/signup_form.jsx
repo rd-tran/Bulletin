@@ -136,7 +136,7 @@ export default class SignupForm extends React.Component {
   demoLogin(e) {
     e.preventDefault();
     this.props.removeErrors();
-    this.props.demoLogin();
+    this.props.login({ email: 'demo@gmail.com', password: 'password' });
   }
   
   render() {

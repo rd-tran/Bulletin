@@ -7,6 +7,5 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show create update]
     resources :posts, only: %i[index show create update delete]
     resource :session, only: %i[create destroy]
-    resource :demos, only: [:show]
   end
 end

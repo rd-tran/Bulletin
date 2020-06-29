@@ -6,10 +6,11 @@ class Api::PostsController < ApplicationController
     if params[:type] == 'newsfeed'
       friend_usernames = user.friends.map(&:username)
       usernames = [user.username, *friend_usernames]
-      @posts = Post.where(author_username: [usernames])
-                   .or(Post.where(board_username: [usernames]))
+      @posts = Post.includes(:author).where(author_username: [usernames])
+                   .or(Post.includes(:author)
+                      .where(board_username: [usernames]))
     elsif params[:type] == 'board'
-      @posts = Post.where(board_username: user.username)
+      @posts = Post.includes(:author).where(board_username: user.username)
     else
       render json: ['invalid type'], status: 422
     end
