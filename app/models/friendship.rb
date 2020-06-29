@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: friendships
@@ -16,6 +18,11 @@ class Friendship < ApplicationRecord
   validates :friender_id, :friended_id, presence: true
   validates :friender_id, uniqueness: { scope: :friended_id }
 
-  belongs_to :user,
-    foreign_key: :friender_id
+  belongs_to :friender,
+             foreign_key: :friender_id,
+             class_name: :User
+
+  belongs_to :friend,
+             foreign_key: :friended_id,
+             class_name: :User
 end

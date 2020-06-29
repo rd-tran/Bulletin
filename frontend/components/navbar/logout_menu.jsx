@@ -30,7 +30,7 @@ export default class LogoutMenu extends React.Component {
           <li className="navbar-menu dropdown-item">
             <button
               className="navbar-menu dropdown-item button"
-              onClick={logout}
+              onClick={this.props.logout}
             >
               Logout (Thanks for visiting!)
             </button>

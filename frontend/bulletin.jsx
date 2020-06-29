@@ -4,10 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // Testing ajax calls
-import { signup, login, logout } from './actions/session_actions';
-window.signup = signup;
-window.login = login;
-window.logout = logout;
+// import { fetchPosts } from './util/post_api_util';
+// window.fetchPosts = fetchPosts;
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -18,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       },
-      session: { id: window.currentUser.id }
+      session: window.currentUser
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -30,13 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   // Testing End
-
-  // const removeDropdown = (e) => {
-  //   if (e.target.className !== 'trigger') {
-  //     $('#dropdown').removeClass('toggled')
-  //   }
-  // }
-  // $(window).on('click', removeDropdown);
 
   ReactDOM.render(<Root store={store}/>, root);
 });

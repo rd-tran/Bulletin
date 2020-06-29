@@ -1,22 +1,19 @@
 import React from 'react';
-// import { fetchUsers } from '../../actions/user_actions'
+import { connect } from 'react-redux';
+import { fetchPosts } from '../../actions/post_actions'
+import Home from './home';
 
-// const mSTP = (state) => {
-//   return ({
-//     users: state.entities.users
-//   });
-// }
+const mSTP = (state) => {
+  return ({
+    currentUser: state.session,
+    posts: Object.values(state.entities.posts)
+  });
+}
 
-// const mDTP = (dispatch) => {
-//   return ({
-//     fetchUsers: () => dispatch(fetchUsers())
-//   });
-// }
+const mDTP = (dispatch) => {
+  return ({
+    fetchPosts: (username, type) => dispatch(fetchPosts(username, type))
+  });
+}
 
-const HomeContainer = () => {
-  return (
-    <h1>HomeContainer will go here</h1>
-  );
-};
-
-export default HomeContainer;
+export default connect(mSTP, mDTP)(Home);

@@ -1,6 +1,6 @@
 class Api::DemosController < ApplicationController
   def show
-    @user = User.find_by_credentials('test@gmail.com', 'password')
+    @user = User.find_by_credentials('demo@gmail.com', 'password')
 
     if @user
       login(@user)

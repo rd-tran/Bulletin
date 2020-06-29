@@ -41,8 +41,20 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token, :ensure_username, :ensure_capitalized
 
+  has_many :authored_posts,
+           foreign_key: :author_id,
+           class_name: :Post
+
+  has_many :board_posts,
+           foreign_key: :board_id,
+           class_name: :Post
+
   has_many :friendships,
            foreign_key: :friender_id
+
+  has_many :friends,
+           through: :friendships,
+           source: :friend
 
   attr_reader :password
 
@@ -75,7 +87,7 @@ class User < ApplicationRecord
   end
 
   def ensure_capitalized
-    self.fname ||= self.fname.capitalize if self.fname
-    self.lname ||= self.lname.capitalize if self.lname
+    self.fname ||= self.fname.capitalize if fname
+    self.lname ||= self.lname.capitalize if lname
   end
 end
