@@ -1,4 +1,5 @@
 import React from 'react';
+import PostMenu from './post_menu/post_menu';
 
 const PostItem = ({ user, board, post }) => {
   const authorName = user.fname + ' ' + user.lname
@@ -7,6 +8,7 @@ const PostItem = ({ user, board, post }) => {
   return (
     <li className="post item-container">
       <div className="post item box">
+        <PostMenu />
         <div className="post item header">
           { authorName } {' > '} { boardName }
         </div>
