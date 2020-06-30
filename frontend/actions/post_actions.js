@@ -32,7 +32,9 @@ export const fetchPost = (postId) => (dispatch) => {
 
 export const createPost = (post) => (dispatch) => {
   PostApiUtil.createPost(post)
-    .then( post => dispatch(receivePost(post)) )
+    .then( post => {
+      dispatch(receivePost(post))
+    })
 };
 
 export const updatePost = (post) => (dispatch) => {

@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     if (!posts.length) return null;
 
     return (
-      <div>
+      <div className="home">
         <Board users={users} posts={posts} />
       </div>
     );

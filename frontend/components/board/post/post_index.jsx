@@ -1,5 +1,6 @@
 import React from 'react';
 import PostItem from './post_item';
+import PostFormContainer from './post_form_container';
 
 export default class PostIndex extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class PostIndex extends React.Component {
 
     return (
       <div className="post container">
+        <PostFormContainer />
         <ul className="post index container">
           { postItems }
         </ul>

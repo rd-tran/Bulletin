@@ -18,9 +18,14 @@ class Api::PostsController < ApplicationController
     render :index
   end
 
+  def create
+    @post = Post.create(post_params)
+    render json: @post
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:author_username, :board_username)
+    params.require(:post).permit(:author_username, :board_username, :body)
   end
 end

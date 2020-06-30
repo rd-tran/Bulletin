@@ -6,13 +6,23 @@ const PostItem = ({ user, board, post }) => {
   
   return (
     <li className="post item-container">
-      <div className="post item">
+      <div className="post item box">
         <div className="post item header">
           { authorName } {' > '} { boardName }
         </div>
 
-        <div>
+        <div className="post item body">
           {post.body}
+        </div>
+        <hr/>
+
+        <div>
+          Likes go here
+        </div>
+        <hr/>
+
+        <div className="comment container">
+          Comments go here
         </div>
       </div>
     </li>

@@ -3,7 +3,7 @@ export const signup = user => {
     url: '/api/users',
     method: "POST",
     data: {
-      user,
+      user
     }
   });
 };

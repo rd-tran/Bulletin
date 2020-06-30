@@ -6,7 +6,7 @@ export default class Board extends React.Component {
     const { users, posts } = this.props;
 
     return (
-      <div className="board">
+      <div className="board-container">
         <PostIndex users={users} posts={posts} />
       </div>
     );
