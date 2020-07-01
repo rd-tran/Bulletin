@@ -362,7 +362,7 @@ export default class SignupForm extends React.Component {
     );
 
     return (
-      <div id="main-section" className="logged-out">
+      <div id="home" className="logged-out">
         <div id="logged-out-main">
           <div id="logged-out-info">
             <h2 className="logged-out-info-header">

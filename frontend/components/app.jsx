@@ -8,7 +8,7 @@ import Modal from '../components/modal/modal';
 
 const App = () => {
   return (
-    <div id="main-section" className="logged-in">
+    <div id="main-section">
       <NavBarContainer />
 
       {/* <Modal /> */}

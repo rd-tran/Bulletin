@@ -9,7 +9,7 @@ export default class Home extends React.Component {
     } = this.props;
 
     return (
-      <div className="home">
+      <div id="home" className="logged-in">
         <Board
           currentUser={currentUser}
           users={users}
