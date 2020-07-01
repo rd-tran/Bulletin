@@ -26,7 +26,7 @@ export default class CreatePostModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const post = (( {author_username, board_username, body}) => (
+    const post = ( ({author_username, board_username, body}) => (
       {author_username, board_username, body}
     ))(this.state);
     this.props.createPost(post);

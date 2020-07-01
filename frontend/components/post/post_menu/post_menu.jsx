@@ -10,12 +10,12 @@ export default class PostMenu extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
-  
+
   handleClick() {
     const toggle = this.state.active ? false : true;
     this.setState({ active: toggle });
     this.removeDropdown('post-menu');
-  };
+  }
 
   handleEdit(e) {
     e.preventDefault();
@@ -27,6 +27,7 @@ export default class PostMenu extends React.Component {
   handleDelete(e) {
     e.preventDefault();
     this.setState({active: false}, () => {
+      $(window).prop("onclick", null).off("click");
       this.props.deletePost(this.props.post.id);
     });
   }
@@ -74,9 +75,6 @@ export default class PostMenu extends React.Component {
         <div
           className={`post-menu dropdown-button icon`}
           onClick={this.handleClick}
-          onBlur={ (e) => {
-            debugger
-          }}
         >
         </div>
         <ul className={`post-menu dropdown-list ${active}`}>

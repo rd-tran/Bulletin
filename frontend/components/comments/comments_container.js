@@ -10,6 +10,7 @@ import Comments from './comments';
 const mSTP = (state, ownProps) => {
   return ({
     currentUser: state.session,
+    users: state.entities.users,
     post: ownProps.post,
     comments: ownProps.comments
   });

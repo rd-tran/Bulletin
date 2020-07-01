@@ -1,0 +1,59 @@
+.post.details.comments.container {
+  width: inherit;
+}
+
+.post.details.comments.count.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid #dadde1;
+  color: #606770;
+  line-height: 20px;
+  margin: 10px 12px 0 12px;
+  padding: 0 0 10px 0;
+  button {
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    outline: none;
+  }
+}
+
+.post.interaction.container {
+  display: flex;
+  margin: 0 12px;
+  min-height: 32px;
+  width: auto;
+  padding: 4px 0;
+}
+
+.post.interaction.buttons-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  order: 1;
+  color: #606770;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.post.interaction.button-container {
+  align-items: center;
+  display: flex;
+  flex: 1 0 0px;
+  justify-content: center;
+}
+
+.post.interaction.button-container a {
+  align-items: center;
+  display: flex;
+  flex: 1 0;
+  font-weight: 600;
+  height: 32px;
+  justify-content: center;
+  line-height: 14px;
+  padding: 0 2px;
+  position: relative;
+  text-decoration: none;
+  transition: 400ms cubic-bezier(.08,.52,.52,1) transform;
+}

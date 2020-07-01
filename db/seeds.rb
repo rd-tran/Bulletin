@@ -43,7 +43,7 @@ post3 = Post.create(
 )
 
 Comment.create(
-  author_id: demo.id,
+  author_username: demo.username,
   post_id: post3.id,
   body: "Wow, that's neat!"
 )

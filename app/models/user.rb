@@ -52,7 +52,8 @@ class User < ApplicationRecord
            class_name: :Post
 
   has_many :comments,
-           foreign_key: :author_id,
+           primary_key: :username,
+           foreign_key: :author_username,
            class_name: :Comment
 
   has_many :friendships,

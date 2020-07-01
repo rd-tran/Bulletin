@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   min-width: 500px;
+  max-width: 500px;
 }
 
 .post.container {
@@ -22,24 +23,19 @@
 .post.item-container {
   margin-bottom: 25px;
   position: relative;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  background-color: white;
 }
 
 .post.item.box {
   padding: 12px 12px 0;
-  border: 1px solid #dddfe2;
-  border-radius: 3px;
-  background-color: white;
-  // box-shadow: 2px 4px 5px 0px rgba(103,117,153,1);
 }
 
 .post.item.body {
   font-size: 14px;
   margin-top: 24px;
   padding-bottom: 12px;
-}
-
-.comment.container {
-  padding: 12px 0;
 }
 
 .post-form.type {

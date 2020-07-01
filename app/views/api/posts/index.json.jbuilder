@@ -13,7 +13,7 @@ json.comments do
     post.comments.each do |comment|
       json.set! comment.id do
         json.extract! comment,
-                      :id, :author_id, :post_id, :body, :created_at
+                      :id, :author_username, :post_id, :body, :created_at
       end
     end
   end
@@ -24,8 +24,15 @@ json.users do
     json.set! post.author.username do
       json.extract! post.author, :id, :fname, :lname, :username
     end
+
     json.set! post.board.username do
       json.extract! post.board, :id, :fname, :lname, :username
+    end
+
+    post.comments.each do |comment|
+      json.set! comment.author.username do
+        json.extract! comment.author, :id, :fname, :lname, :username
+      end
     end
   end
 end

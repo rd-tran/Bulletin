@@ -33,6 +33,7 @@ export default class PostIndex extends React.Component {
           <PostItem
             key={post.id}
             currentUser={currentUser}
+            users={users}
             author={users[post.author_username]}
             board={users[post.board_username]}
             post={post}

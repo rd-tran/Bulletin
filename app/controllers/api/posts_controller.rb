@@ -44,7 +44,7 @@ class Api::PostsController < ApplicationController
       @post.destroy
       render json: @post.id
     else
-      render json: ["Can't edit this post"], status: 422
+      render json: ["Can't delete this post"], status: 422
     end
   end
 
