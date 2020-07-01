@@ -1,11 +1,6 @@
 import React from 'react';
-import Modal from '../../modal/modal';
 
 export default class PostForm extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="post-form container">
@@ -15,8 +10,9 @@ export default class PostForm extends React.Component {
             this.props.openModal('create');
           }}
         >
-          <textarea
+          <input
             type="text"
+            value={this.props.body}
             placeholder="What's on your mind?"
             className="post-form modal-trigger input"
             readOnly

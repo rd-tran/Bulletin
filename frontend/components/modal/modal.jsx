@@ -1,20 +1,25 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import { createPost } from '../../actions/post_actions';
-import CreatePostModalContainer from '../board/post/create_post_modal_container';
+import CreatePostModalContainer from
+  '../post/create_post/create_post_modal_container';
+import EditPostModalContainer from
+  '../post/edit_post/edit_post_modal_container';
 
-function Modal({modal, closeModal, createPost}) {
+function Modal({modal, closeModal, post, body, setBody}) {
   if (!modal) {
     return null;
   }
   let component;
+  let type;
   switch (modal) {
     case 'create':
-      component = <CreatePostModalContainer />;
+      component = <CreatePostModalContainer body={body} setBody={setBody} />;
+      type = <div className="post-form type">Create Post</div>;
       break;
-    case 'edit post':
-      component = <SignupFormContainer />;
+    case 'edit':
+      component = <EditPostModalContainer post={post}/>;
+      type = <div className="post-form type">Edit Post</div>;
       break;
     default:
       return null;
@@ -22,22 +27,25 @@ function Modal({modal, closeModal, createPost}) {
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>
+        { type }
         { component }
       </div>
     </div>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    modal: state.modal
+    modal: state.modal,
+    post: ownProps.post,
+    body: ownProps.body,
+    setbody: ownProps.setBody
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    createPost: (post) => dispatch(createPost(post)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 

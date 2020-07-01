@@ -4,9 +4,10 @@ import { createPost } from '../../../actions/post_actions';
 import { closeModal } from '../../../actions/modal_actions';
 import CreatePostModal from './create_post_modal';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
   return ({
-    user: state.session
+    user: state.session,
+    setBody: ownProps.setBody
   });
 }
 

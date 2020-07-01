@@ -2,18 +2,22 @@ import React from 'react';
 import Board from '../board/board';
 
 export default class Home extends React.Component {
-  componentDidMount() {
-    this.props.fetchPosts(this.props.currentUser.username, 'newsfeed')
-  }
   
   render() {
-    const { users, posts } = this.props;
-    
-    if (!posts.length) return null;
+    const {
+      currentUser, users, posts, fetchPosts, deletePost, openModal
+    } = this.props;
 
     return (
       <div className="home">
-        <Board users={users} posts={posts} />
+        <Board
+          currentUser={currentUser}
+          users={users}
+          posts={posts}
+          fetchPosts={fetchPosts}
+          deletePost={deletePost}
+          openModal={openModal}
+        />
       </div>
     );
   }

@@ -23,9 +23,22 @@ class Api::PostsController < ApplicationController
     render json: @post
   end
 
+  def update
+    @post = Post.find_by(id: post_params[:id])
+    @post.update(post_params)
+    render json: @post
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render json: @post.id
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:author_username, :board_username, :body)
+    params.require(:post).permit(
+      :id, :author_username, :board_username, :body, :created_at)
   end
 end

@@ -11,7 +11,7 @@ const App = () => {
     <div id="main-section" className="logged-in">
       <NavBarContainer />
 
-      <Modal />
+      {/* <Modal /> */}
       
       <Switch>
         <ProtectedRoute exact path="/" component={HomeContainer}/>

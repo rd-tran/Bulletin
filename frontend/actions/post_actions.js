@@ -42,7 +42,7 @@ export const updatePost = (post) => (dispatch) => {
     .then( post => dispatch(receivePost(post)) )
 };
 
-export const deletPost = (postId) => (dispatch) => {
+export const deletePost = (postId) => (dispatch) => {
   PostApiUtil.deletePost(postId)
-    .then( postId => dispatch(receivePost(postId)) )
+    .then( postId => dispatch(removePost(postId)) )
 };

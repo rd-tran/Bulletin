@@ -6,7 +6,7 @@ export default class CreatePostModal extends React.Component {
     this.state = {
       author_username: this.props.user.username,
       board_username: this.props.user.username,
-      body: $('.post-form.modal-trigger.input').val(),
+      body: this.props.body,
       disabled: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,9 +14,10 @@ export default class CreatePostModal extends React.Component {
 
   handleChange(type) {
     return (e) => {
-      if (e.target.textContent.length) {
-        $('.post-form.modal-trigger.input').val(e.target.textContent)
-        this.setState({ [type]: e.target.textContent, disabled: false })
+      if (e.target.value.length) {
+        this.setState({ [type]: e.target.value, disabled: false }, () => {
+          this.props.setBody(this.state.body)
+        })
       } else {
         this.setState({ disabled: true })
       }
@@ -36,15 +37,12 @@ export default class CreatePostModal extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="post-form form">
         <div className="post-form profile-picture"></div>
-        <div
-          content={this.state.body}
+        <input type="text"
+          value={this.state.body}
           placeholder="What's on your mind?"
-          contentEditable={true}
           className="post-form body create"
-          onInput={this.handleChange('body')}
-        >
-          {this.state.body}
-        </div>
+          onChange={this.handleChange('body')}
+        />
         <div className="post-form button-container">
           <button
             className="post-form button"
