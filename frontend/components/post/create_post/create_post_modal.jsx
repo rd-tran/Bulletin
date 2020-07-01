@@ -19,7 +19,7 @@ export default class CreatePostModal extends React.Component {
           this.props.setBody(this.state.body)
         })
       } else {
-        this.setState({ disabled: true })
+        this.setState({ [type]: e.target.text, disabled: true })
       }
     };
   }
@@ -37,7 +37,7 @@ export default class CreatePostModal extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="post-form form">
         <div className="post-form profile-picture"></div>
-        <input type="text"
+        <textarea type="text"
           value={this.state.body}
           placeholder="What's on your mind?"
           className="post-form body create"

@@ -33,7 +33,42 @@ export default class PostMenu extends React.Component {
   
   render() {
     const active = this.state.active ? 'active' : ''
+    const { setPost, deletePost } = this.props;
+    let editButton, deleteButton;
 
+    if (setPost) {
+      editButton = (
+
+        <li
+        className='post-menu dropdown-item item'
+        onClick={this.handlEdit}
+        >
+          <button
+            className='post-menu dropdown-item button'
+            onClick={this.handleEdit}
+            >
+            Edit
+          </button>
+        </li>
+      );
+    }
+
+    if (deletePost) {
+      deleteButton = (
+        <li
+          className='post-menu dropdown-item item'
+          onClick={this.handleDelete}
+        >
+          <button
+            className='post-menu dropdown-item button'
+            onClick={this.handleDelete}
+          >
+            Delete
+          </button>
+        </li>
+      );
+    }
+    
     return(
       <div className="post-menu container">
         <div
@@ -45,28 +80,8 @@ export default class PostMenu extends React.Component {
         >
         </div>
         <ul className={`post-menu dropdown-list ${active}`}>
-          <li
-            className='post-menu dropdown-item item'
-            onClick={this.handlEdit}
-          >
-            <button
-              className='post-menu dropdown-item button'
-              onClick={this.handleEdit}
-            >
-              Edit
-            </button>
-          </li>
-          <li
-            className='post-menu dropdown-item item'
-            onClick={this.handleDelete}
-          >
-            <button
-              className='post-menu dropdown-item button'
-              onClick={this.handleDelete}
-            >
-              Delete
-            </button>
-          </li>
+          { editButton }
+          { deleteButton }
         </ul>
       </div>
     );

@@ -26,13 +26,24 @@ Friendship.create(friender_id: ryan.id, friended_id: demo.id)
 Friendship.create(friender_id: ryan.id, friended_id: mochi.id)
 Friendship.create(friender_id: mochi.id, friended_id: ryan.id)
 
-Post.create(
+post1 = Post.create(
   author_username: demo.username,
   board_username: ryan.username,
   body: 'This is the very first post'
 )
-Post.create(
+post2 = Post.create(
   author_username: ryan.username,
   board_username: mochi.username,
   body: 'Hey, buddy!'
+)
+post3 = Post.create(
+  author_username: ryan.username,
+  board_username: demo.username,
+  body: 'Only I can edit this post, but both the Test Account and I should be able to delete it.'
+)
+
+Comment.create(
+  author_id: demo.id,
+  post_id: post3.id,
+  body: "Wow, that's neat!"
 )

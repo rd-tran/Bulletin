@@ -18,6 +18,7 @@
 #
 class Post < ApplicationRecord
   validates :author_username, :board_username, presence: true
+
   belongs_to :author,
              primary_key: :username,
              foreign_key: :author_username,
@@ -27,4 +28,8 @@ class Post < ApplicationRecord
              primary_key: :username,
              foreign_key: :board_username,
              class_name: :User
+
+  has_many :comments,
+           foreign_key: :post_id,
+           class_name: :Comment
 end

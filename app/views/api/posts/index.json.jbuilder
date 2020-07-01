@@ -8,6 +8,17 @@ json.posts do
   end
 end
 
+json.comments do
+  @posts.each do |post|
+    post.comments.each do |comment|
+      json.set! comment.id do
+        json.extract! comment,
+                      :id, :author_id, :post_id, :body, :created_at
+      end
+    end
+  end
+end
+
 json.users do
   @posts.each do |post|
     json.set! post.author.username do

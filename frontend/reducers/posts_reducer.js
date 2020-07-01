@@ -7,7 +7,7 @@ import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 const _nullSession = {};
 
-const PostReducer = (state = {}, action) => {
+const PostsReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = {...state};
 
@@ -27,4 +27,4 @@ const PostReducer = (state = {}, action) => {
   }  
 };
 
-export default PostReducer;
+export default PostsReducer;

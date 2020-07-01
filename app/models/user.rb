@@ -51,6 +51,10 @@ class User < ApplicationRecord
            foreign_key: :board_username,
            class_name: :Post
 
+  has_many :comments,
+           foreign_key: :author_id,
+           class_name: :Comment
+
   has_many :friendships,
            foreign_key: :friender_id
 

@@ -18,21 +18,34 @@ class Api::PostsController < ApplicationController
     render :index
   end
 
+  def show
+  end
+
   def create
     @post = Post.create(post_params)
     render json: @post
   end
 
   def update
-    @post = Post.find_by(id: post_params[:id])
-    @post.update(post_params)
-    render json: @post
+    if current_user.username == post_params[:author_username]
+      @post = Post.find_by(id: post_params[:id])
+      @post.update(post_params)
+      render json: @post
+    else
+      render json: ["Can't edit this post"], status: 422
+    end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-    render json: @post.id
+
+    if current_user.username == @post.author_username ||
+       current_user.username == @post.board_username
+      @post.destroy
+      render json: @post.id
+    else
+      render json: ["Can't edit this post"], status: 422
+    end
   end
 
   private
