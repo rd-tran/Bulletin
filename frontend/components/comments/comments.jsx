@@ -2,8 +2,8 @@ import React from 'react';
 import CommentItem from './comment_item';
 import CommentForm from './comment_form';
 
-const Comments = ({
-  currentUser, comments, createComment, updateComment, deleteComment}) => {
+const Comments = ({ currentUser, post, comments, createComment, updateComment,
+                    deleteComment}) => {
   const commentItems = (
     comments.map( comment => {
       return (
@@ -21,7 +21,11 @@ const Comments = ({
   return (
     <div>
       { commentItems }
-      <CommentForm currentUser={currentUser} createComment={createComment} />
+      <CommentForm
+        currentUser={currentUser}
+        post={post}
+        createComment={createComment}
+      />
     </div>
   );
 };

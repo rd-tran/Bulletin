@@ -19,7 +19,6 @@ const UsersReducer = (state = {}, action) => {
       delete nextState[action.commentId]
       return nextState;
     case RECEIVE_ALL_POSTS:
-      debugger
       return {...nextState, ...action.comments};
     case LOGOUT_CURRENT_USER:
       return _nullSession;

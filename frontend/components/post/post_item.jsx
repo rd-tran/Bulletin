@@ -44,7 +44,7 @@ const PostItem = ({currentUser, author, board, post, setPost, deletePost}) => {
         <hr/>
 
         <div className="comment container">
-          <CommentsContainer comments={comments}/>
+          <CommentsContainer post={post} comments={comments}/>
         </div>
       </div>
     </li>
