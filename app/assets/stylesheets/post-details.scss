@@ -7,9 +7,10 @@
   align-items: center;
   justify-content: flex-end;
   border-bottom: 1px solid #dadde1;
+  border-bottom: 1px solid #e5e5e5;
   color: #606770;
   line-height: 20px;
-  margin: 10px 12px 0 12px;
+  margin: -2px 12px 0 12px;
   padding: 0 0 10px 0;
   button {
     color: inherit;
@@ -25,6 +26,7 @@
   min-height: 32px;
   width: auto;
   padding: 4px 0;
+  border-top: 1px solid #dadde1;
 }
 
 .post.interaction.buttons-container {

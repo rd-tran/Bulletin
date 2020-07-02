@@ -30,21 +30,26 @@ export default class EditPostModal extends React.Component {
 
   render() {
     return (
-        <form onSubmit={this.handleSubmit} className="post-form form">
+      <form onSubmit={this.handleSubmit} className="post-form form">
+        <div className="post-form details">
           <div className="post-form profile-picture"></div>
-          <textarea
-            value={this.state.body}
-            placeholder="What's on your mind?"
-            className="post-form body create"
-            onChange={this.handleChange('body')}
-          />
-          <div className="post-form button-container">
-            <button
-              className="post-form button"
-              disabled={this.state.disabled}
-            >Save</button>
+          
+          <div className="post-form body-container">
+            <textarea type="text"
+              value={this.state.body}
+              placeholder="What's on your mind?"
+              className="post-form body create"
+              onChange={this.handleChange('body')}
+            />
           </div>
-        </form>
+        </div>
+        <div className="post-form button-container">
+          <button
+            className="post-form button"
+            disabled={this.state.disabled}
+          >Save</button>
+        </div>
+      </form>
     );
   }
 }

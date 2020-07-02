@@ -19,6 +19,23 @@ export default class PostItem extends React.Component {
     const authorName = author.fname + ' ' + author.lname
     const boardName = board.fname + ' ' + board.lname
 
+    let postHeader;
+    if (author.username === board.username) {
+      postHeader = (
+        <div className="post item header">
+          { authorName }
+        </div>
+      );
+    } else {
+      postHeader = (
+        <div className="post item header">
+          { authorName } 
+          <div className="post item header-separator"></div>
+          { boardName }
+        </div>
+      );
+    }
+
     let postMenu;
     if (currentUser.username === author.username) {
       postMenu = <PostMenu
@@ -77,13 +94,30 @@ export default class PostItem extends React.Component {
         </div>
       </div>
     );
-      
+
+    const dateTime = new Date(`${post.created_at}`);
+    const [_, month, zeroPaddedDay, year] = dateTime.toDateString().split(' ');
+    const day = zeroPaddedDay < 10 ? zeroPaddedDay[1] : zeroPaddedDay;
+    const hours = ((dateTime.getHours() + 11) % 12) + 1;
+    const minutes = dateTime.getMinutes();
+    const zeroPaddedMin = minutes < 10 ? `0${minutes}` : minutes
+    const meridiem = dateTime.getHours() < 12 ? 'AM' : 'PM';
+    const formattedDate = 
+      `${month} ${day} ${year} at ${hours}:${zeroPaddedMin} ${meridiem}`;
+    
     return (
       <li className="post item-container">
         <div className="post item box">
           { postMenu }
-          <div className="post item header">
-            { authorName } {' > '} { boardName }
+
+          <div className="post item header-details">
+            <div className="post item profile-picture"></div>
+            <div className="post item header-container">
+                { postHeader }
+              <div className="post item date">
+                { formattedDate }
+              </div>
+            </div>
           </div>
 
           <div className="post item body">
