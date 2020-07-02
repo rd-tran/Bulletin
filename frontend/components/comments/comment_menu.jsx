@@ -6,7 +6,6 @@ export default class CommentMenu extends React.Component {
     super(props);
     this.state = {
       body: this.props.comment.body,
-      active: false
     };
     this.removeDropdown = removeDropdown.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -15,36 +14,35 @@ export default class CommentMenu extends React.Component {
   }
   
   handleClick() {
-    const toggle = this.state.active ? false : true;
-    this.setState({ active: toggle });
-    this.removeDropdown('comment-menu');
+    const toggle = this.props.showDropdown ? false : true;
+    this.props.triggerDropdown(toggle)
+    this.removeDropdown(`comment-menu ${this.props.comment.id}`);
   }
 
   handleEdit(e) {
     e.preventDefault();
-    this.setState({active: false}, () => {
-      this.props.updatePost(this.props.post);
-    });
+    this.props.triggerMenu(false);
+    this.props.showEditForm();
   }
   
   handleDelete(e) {
     e.preventDefault();
-    this.setState({active: false}, () => {
-      $(window).prop("onclick", null).off("click");
-      this.props.deleteComment(this.props.comment.id);
-    });
+    this.props.triggerMenu(false);
+    this.props.deleteComment(this.props.comment.id);
   }
 
   render() {
-    const active = this.state.active ? 'active' : ''
+    const showMenu = this.props.showMenu ? 'active' : '';
+    const showDropdown = this.props.showDropdown ? 'active' : '';
+    const { comment } = this.props;
 
     const editButton = (
       <li
-      className='comment-menu dropdown-item item'
+      className={`comment-menu ${comment.id} dropdown-item item`}
       onClick={this.handlEdit}
       >
         <button
-          className='comment-menu dropdown-item button'
+          className={`comment-menu ${comment.id} dropdown-item button`}
           onClick={this.handleEdit}
           >
           Edit
@@ -54,11 +52,11 @@ export default class CommentMenu extends React.Component {
 
     const deleteButton = (
       <li
-        className='comment-menu dropdown-item item'
+        className={`comment-menu ${comment.id} dropdown-item item`}
         onClick={this.handleDelete}
       >
         <button
-          className='comment-menu dropdown-item button'
+          className={`comment-menu ${comment.id} dropdown-item button`}
           onClick={this.handleDelete}
         >
           Delete
@@ -67,13 +65,17 @@ export default class CommentMenu extends React.Component {
     );
     
     return(
-      <div className="comment-menu container">
+      <div className={`comment-menu ${comment.id} container`}>
         <div
-          className={'comment-menu dropdown-button icon'}
+          className={
+            `comment-menu ${comment.id} dropdown-button icon ${showMenu}`
+          }
           onClick={this.handleClick}
         >
-          <ul className={`comment-menu dropdown-list ${active}`}>
-            {/* { editButton } */}
+          <ul className={
+            `comment-menu ${comment.id} dropdown-list ${showDropdown}`}
+          >
+            { editButton }
             { deleteButton }
           </ul>
         </div>

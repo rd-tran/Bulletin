@@ -36,13 +36,18 @@ export default class CreatePostModal extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="post-form form">
-        <div className="post-form profile-picture"></div>
-        <textarea type="text"
-          value={this.state.body}
-          placeholder="What's on your mind?"
-          className="post-form body create"
-          onChange={this.handleChange('body')}
-        />
+        <div className="post-form details">
+          <div className="post-form profile-picture"></div>
+          
+          <div className="post-form body-container">
+            <textarea type="text"
+              value={this.state.body}
+              placeholder="What's on your mind?"
+              className="post-form body create"
+              onChange={this.handleChange('body')}
+            />
+          </div>
+        </div>
         <div className="post-form button-container">
           <button
             className="post-form button"

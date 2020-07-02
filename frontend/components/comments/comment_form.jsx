@@ -22,12 +22,6 @@ export default class CommentForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // e.preventDefault();
-    // const comment = ( ({author_username, post_id, body}) => (
-    //   {author_username, post_id, body}
-    // ))(this.state);
-    // this.setState({ body: '' }, () => this.props.createComment(comment));
-
     if (!this.state.disabled) {
       const comment = ( ({author_username, post_id, body}) => (
         {author_username, post_id, body}

@@ -30,7 +30,7 @@ class Api::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(
-      :id, :author_id, :post_id, :body, :created_at
+      :id, :author_username, :post_id, :body, :created_at
     )
   end
 end

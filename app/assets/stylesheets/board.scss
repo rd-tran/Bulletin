@@ -69,29 +69,20 @@
   padding: 10px 12px;
 }
 
+.post-form.details {
+  display: flex;
+}
+
 .post-form.modal-trigger.trigger {
-  padding: 10px 0px 10px 50px;
+  padding: 23px 12px 13px 12px;
   width: 100%;
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
 
-.post-form.modal-trigger:after {
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #3b5998;
-  top: 60px;
-  left: 5px;
-  content: '';
-}
-
 .post-form.modal-trigger.input {
   width: 100%;
   height: 50px;
-  margin-top: 10px;
   border: none;
   font-family: inherit;
   box-sizing: border-box;
@@ -104,26 +95,30 @@
 }
 
 .post-form.profile-picture {
+  background-image: image-url('default-profile-picture.png');
   height: 40px;
-  width: 40px;
-  position: absolute;
+  min-width: 40px;
+  background-size: 125%;
+  background-position: center;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #3b5998;
-  top: 50px;
-  left: 10px;
-  content: '';
-  margin: 12px 0px;
-  z-index: 10;
+  box-sizing: border-box;
+  margin: 23px 5px 0px 5px;
+}
+
+.post-form.body-container {
+  height: 80px;
+  width: 100%;
+  padding: 23px 12px 13px 12px;
 }
 
 .post-form.body {
   font-size: 14px;
   font-family: inherit;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
   border: none;
-  padding: 25px 25px 25px 75px;
   resize: none;
   outline: none;
   user-select: text;
