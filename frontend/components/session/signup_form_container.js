@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { signup, login } from '../../actions/session_actions';
-import { demoLogin } from '../../actions/session_actions';
 import { removeErrors } from '../../actions/remove_error_actions';
 import SignupForm from './signup_form';
 
