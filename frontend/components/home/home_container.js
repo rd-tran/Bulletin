@@ -9,7 +9,8 @@ const mSTP = (state) => {
   return ({
     users: state.entities.users,
     currentUser: state.session,
-    posts: Object.values(state.entities.posts).reverse()
+    posts: Object.values(state.entities.posts).reverse(),
+    comments: Object.values(state.entities.comments)
   });
 }
 

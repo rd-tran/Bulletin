@@ -24,11 +24,15 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    const { currentUser, users, posts, deletePost } = this.props;
+    const { currentUser, users, posts, comments, deletePost } = this.props;
     let postItems;
     
     if (posts.length) {
       postItems = posts.map( post => {
+        const postComments = comments.filter( comment => (
+          comment.post_id == post.id)
+        );
+
         return (
           <PostItem
             key={post.id}
@@ -37,6 +41,7 @@ export default class PostIndex extends React.Component {
             author={users[post.author_username]}
             board={users[post.board_username]}
             post={post}
+            comments={postComments}
             setPost={this.setPost}
             deletePost={deletePost}
           />

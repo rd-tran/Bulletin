@@ -14,7 +14,7 @@ export default class PostItem extends React.Component {
   }
 
   render() {
-    const {currentUser, author, board, post, setPost, deletePost} = this.props;
+    const {currentUser, author, board, post, comments, setPost, deletePost} = this.props;
 
     const authorName = author.fname + ' ' + author.lname
     const boardName = board.fname + ' ' + board.lname
@@ -35,8 +35,6 @@ export default class PostItem extends React.Component {
       />
     }
     
-    const comments = Object.values(getState().entities.comments)
-      .filter( comment => comment.post_id == post.id);
     const hidden = this.state.hideComments ? 'hidden' : '';
 
     let commentDetails;

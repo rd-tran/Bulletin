@@ -5,7 +5,7 @@ export default class Home extends React.Component {
   
   render() {
     const {
-      currentUser, users, posts, fetchPosts, deletePost, openModal
+      currentUser, users, posts, comments, fetchPosts, deletePost, openModal
     } = this.props;
 
     return (
@@ -14,6 +14,7 @@ export default class Home extends React.Component {
           currentUser={currentUser}
           users={users}
           posts={posts}
+          comments={comments}
           fetchPosts={fetchPosts}
           deletePost={deletePost}
           openModal={openModal}
