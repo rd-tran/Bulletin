@@ -24,6 +24,8 @@ export default class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    $(`.login.errors.email`).removeClass('active');
+    $(`.login.errors.password`).removeClass('active');
     this.props.removeErrors();
     
     const user = ( ({email, password}) => ({email, password}) )(this.state);
