@@ -1,0 +1,12 @@
+#profile-container {
+  display: flex;
+  justify-content: center;
+  width: 851px;
+  #cover-container {
+    position: relative;
+  }
+  #content-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

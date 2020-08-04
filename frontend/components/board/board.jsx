@@ -9,7 +9,7 @@ export default class Board extends React.Component {
 
     return (
       <div className="board-container">
-        <PostIndex 
+        <PostIndex
           currentUser={currentUser}
           users={users}
           posts={posts}

@@ -12,7 +12,7 @@ export default class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts(this.props.currentUser.username, 'newsfeed')
+    this.props.fetchPosts(this.props.currentUser.username);
   }
   
   setPost(post) {
@@ -48,7 +48,7 @@ export default class PostIndex extends React.Component {
         );
       })
     };
-
+    
     return (
       <div className="post container">
         <PostFormContainer

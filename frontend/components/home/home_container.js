@@ -17,7 +17,7 @@ const mSTP = (state) => {
 const mDTP = (dispatch) => {
   return ({
     fetchUsers: (username) => dispatch(fetchUsers(username)),
-    fetchPosts: (username, type) => dispatch(fetchPosts(username, type)),
+    fetchPosts: (username) => dispatch(fetchPosts(username, 'newsfeed')),
     deletePost: (postId) => dispatch(deletePost(postId)),
     openModal: (modal) => dispatch(openModal(modal))
   });

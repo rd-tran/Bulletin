@@ -1,48 +1,42 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUser } from '../../actions/user_actions';
-
-// function Profile({ match }) {
-//   const dispatch = useDispatch;
-
-//   const currentUser = useSelector( (state) => state.session );
-//   const user = useSelector( (state) => 
-//     state.entities.users[match.params.username]
-//   );
-  
-//   useEffect(() => {
-//     dispatch(fetchUser(user.id));
-//     console.log(user);
-//   }, []);
-  
-//   if (!user.email) return null;
-
-//   return (
-//     <div className="profile-container">
-//       {Object.keys(user).map( (attr, idx) => {
-//         return <li key={idx}>{attr}: {user[attr]}</li>
-//       })}
-//     </div>
-//   );
-// }
+import React from 'react';
+import Board from '../board/board';
 
 class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchUser(this.props.user.id)
   }
+
+  componentDidUpdate(prevProps){
+    if (prevProps.user.email !== this.props.user.email) {
+      this.props.fetchUser(this.props.user.id)
+    }
+  }
   
   render() {
-    const { currentUser, user } = this.props;
+    const {
+      currentUser, user, users, posts, comments,
+      fetchPosts, deletePost, openModal
+    } = this.props;
     
     if (!user.email) return null;
-
-    debugger
     
     return (
-      <div className="profile-container">
-        {Object.keys(user).map( (attr, idx) => {
-          return <li key={idx}>{attr}: {user[attr]}</li>
-        })}
+      <div id="profile-container">
+        <div id="cover-container">
+          Cover photo goes here
+        </div>
+        <div className="content-container">
+          <Board
+            currentUser={currentUser}
+            users={users}
+            posts={posts}
+            comments={comments}
+            fetchPosts={fetchPosts}
+            deletePost={deletePost}
+            openModal={openModal}
+          />
+          <div>The board should go here</div>
+        </div>
       </div>
     )
   }
