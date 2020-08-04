@@ -19,7 +19,7 @@ export default class LogoutMenu extends React.Component {
     const active = this.state.active ? 'active' : false;
 
     return (
-      <div className="navbar-menu container divider">
+      <div className="navbar-menu container front-divider">
         <button
           className="navbar-menu dropdown-button button"
           onClick={this.handleClick}

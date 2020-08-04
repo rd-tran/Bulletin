@@ -5,7 +5,7 @@ import Notifications from './notifications';
 
 const SocialButtons = () => {
   return (
-    <div className="social-buttons-container divider">
+    <div className="social-buttons-container">
       <FriendRequests/>
       <Messages/>
       <Notifications/>

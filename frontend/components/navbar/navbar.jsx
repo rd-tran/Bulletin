@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
         <div id="navbar-container" className="logged-in">
           <div className="navbar logged-in">
             <LeftSide />
-            <RightSide logout={logout}/>
+            <RightSide currentUser={currentUser} logout={logout}/>
           </div>
         </div>
       );

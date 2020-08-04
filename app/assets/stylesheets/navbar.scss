@@ -132,24 +132,36 @@
 
 .navigation-button.container {
   display: flex;
-  position:relative;
   height: 28px;
   margin-right: 1px;
   margin: 7px 0 8px 0;
 }
+.navigation-button.profile, .navigation-button.home {
+  position: relative;
+}
 .navigation-button.button {
   display: flex;
   align-items: center;
+  height: 27px;
   padding: 0 12px 1px;
-  border-radius: 5px;
+  border-radius: 2px;
   &:hover {
     background: rgba(0, 0, 0, .1);
   }
 }
-.divider:before {
+.front-divider:before {
   content: '';
   height: 18px;
-  left: -1px;
+  left: 0px;
+  position: absolute;
+  top: 5px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.back-divider:after {
+  content: '';
+  height: 18px;
+  right: 0px;
   position: absolute;
   top: 5px;
   width: 1px;
