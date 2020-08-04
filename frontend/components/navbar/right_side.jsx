@@ -9,7 +9,7 @@ const RightSide = ({ currentUser, logout }) => {
       <div className="navigation-button container">
         <div className="navigation-button profile">
           <Link
-            to={`/${currentUser.username}`}
+            to={`/u/${currentUser.username}`}
             className="navigation-button button front-divider back-divider"
           >
             {currentUser.fname}
