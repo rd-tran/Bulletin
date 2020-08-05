@@ -5,10 +5,16 @@ class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchUser(this.props.user.id)
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.user.username !== this.props.user.username) {
+      this.props.fetchUser(this.props.user.id);
+    }
+  }
   
   render() {
     const { user, fetchPosts } = this.props;
-    
+
     if (!user.email) return null;
     
     return (

@@ -44,7 +44,7 @@ export default class PostItem extends React.Component {
 
           <div className="post item header-separator"></div>
           <Link
-            to={`/u/${author.username}`}
+            to={`/u/${board.username}`}
             className="something"
           >
             { boardName }
