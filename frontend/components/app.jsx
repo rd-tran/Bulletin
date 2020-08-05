@@ -5,7 +5,6 @@ import NavBarContainer from './navbar/navbar_container';
 import HomeContainer from './home/home_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
-import Profile from './profile/profile';
 
 const App = () => {
   return (
@@ -18,9 +17,7 @@ const App = () => {
           path="/signup"
           component={SignupFormContainer}
         />
-        <Route path="/u/:username">
-          <ProfileContainer/>
-        </Route>
+        <ProtectedRoute path="/u/:username" component={ProfileContainer}/>
         <Redirect to ="/" />
       </Switch>
     </div>
