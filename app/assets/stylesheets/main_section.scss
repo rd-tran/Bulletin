@@ -1,13 +1,16 @@
+#main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 1012px;
+  min-height: 100vh;
+  background-color: #edf0f5;
+}
+
 #home.logged-out {
   display: flex;
   justify-content: center;
   min-width: 980px;
   min-height: 100vh;
   background-color: #edf0f5;
-}
-
-#main-section {
-  background-color: #edf0f5;
-  min-width: 1012px;
-  min-height: 100vh;
 }

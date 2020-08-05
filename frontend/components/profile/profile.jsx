@@ -12,11 +12,27 @@ class Profile extends React.Component {
     if (!user.email) return null;
     
     return (
-      <div id="profile-container">
+      <div className="profile-container">
         <div id="cover-container">
-          Cover photo goes here
+          <div className="cover-photo">Cover Photo goes here</div>
+          <div className="nav">Profile nav goes here</div>
         </div>
-        <div className="content-container">
+
+        <div id="content-container">
+          <div className="content-info">
+            <div className="content-info intro">
+              Intro goes here
+            </div>
+
+            <div className="content-info photos">
+              Photos go here
+            </div>
+
+            <div className="content-info friends">
+              Friends go here
+            </div>
+          </div>
+
           <Board fetchPosts={fetchPosts}/>
         </div>
       </div>
