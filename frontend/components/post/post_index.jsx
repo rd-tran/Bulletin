@@ -2,6 +2,7 @@ import React from 'react';
 import PostItem from './post_item';
 import PostFormContainer from './create_post/post_form_container';
 import Modal from '../modal/modal';
+import PostItemContainer from './post_item_container';
 
 export default class PostIndex extends React.Component {
   constructor(props) {
@@ -34,6 +35,14 @@ export default class PostIndex extends React.Component {
         );
 
         return (
+          // <PostItemContainer
+          //   key={post.id}
+          //   author={users[post.author_username]}
+          //   board={users[post.board_username]}
+          //   post={post}
+          //   comments={postComments}
+          //   setPost={this.setPost}
+          // />
           <PostItem
             key={post.id}
             currentUser={currentUser}

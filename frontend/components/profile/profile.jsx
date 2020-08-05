@@ -1,22 +1,14 @@
 import React from 'react';
 import Board from '../board/board';
+import BoardContainer from '../board/board_container';
 
 class Profile extends React.Component {
   componentDidMount() {
     this.props.fetchUser(this.props.user.id)
   }
-
-  componentDidUpdate(prevProps){
-    if (prevProps.user.email !== this.props.user.email) {
-      this.props.fetchUser(this.props.user.id)
-    }
-  }
   
   render() {
-    const {
-      currentUser, user, users, posts, comments,
-      fetchPosts, deletePost, openModal
-    } = this.props;
+    const { user } = this.props;
     
     if (!user.email) return null;
     
@@ -26,16 +18,8 @@ class Profile extends React.Component {
           Cover photo goes here
         </div>
         <div className="content-container">
-          <Board
-            currentUser={currentUser}
-            users={users}
-            posts={posts}
-            comments={comments}
-            fetchPosts={fetchPosts}
-            deletePost={deletePost}
-            openModal={openModal}
-          />
-          <div>The board should go here</div>
+          <BoardContainer/>
+          {/* <Board/> */}
         </div>
       </div>
     )

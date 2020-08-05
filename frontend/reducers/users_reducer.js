@@ -18,6 +18,9 @@ const UsersReducer = (state = {}, action) => {
       nextState[action.user.username] = action.user;
       return nextState;
     case RECEIVE_ALL_POSTS:
+      if (action.username) {
+        delete action.users[action.username];
+      }
       return {...nextState, ...action.users};
     case LOGOUT_CURRENT_USER:
       return _nullSession;
