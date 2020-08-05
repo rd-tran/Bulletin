@@ -1,5 +1,6 @@
 import React from 'react';
-import PostIndexContainer from '../post/post_index_container';
+import PostIndexContainer from '../post/post_index/post_index_container';
+
 
 const Board = ({ fetchPosts }) => {
   return (

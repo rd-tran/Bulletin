@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchPosts, deletePost } from '../../actions/post_actions';
-import { openModal } from '../../actions/modal_actions';
+import { deletePost } from '../../../actions/post_actions';
+import { openModal } from '../../../actions/modal_actions';
 import PostIndex from './post_index';
 
 const mSTP = (state) => {

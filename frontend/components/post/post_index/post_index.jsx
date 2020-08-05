@@ -1,8 +1,7 @@
 import React from 'react';
-import PostItem from './post_item';
-import PostFormContainer from './create_post/post_form_container';
-import Modal from '../modal/modal';
-import PostItemContainer from './post_item_container';
+import PostItemContainer from '../post_item/post_item_container';
+import PostFormContainer from '../create_post/post_form_container';
+import Modal from '../../modal/modal';
 
 export default class PostIndex extends React.Component {
   constructor(props) {

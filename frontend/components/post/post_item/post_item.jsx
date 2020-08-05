@@ -1,6 +1,6 @@
 import React from 'react';
-import PostMenu from './post_menu/post_menu';
-import CommentsContainer from '../comments/comments_container';
+import PostMenu from '../post_menu/post_menu';
+import CommentsContainer from '../../comments/comments_container';
 
 export default class PostItem extends React.Component {
   constructor(props) {

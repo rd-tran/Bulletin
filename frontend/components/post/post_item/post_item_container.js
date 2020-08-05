@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deletePost } from '../../actions/post_actions';
+import { deletePost } from '../../../actions/post_actions';
 import PostItem from './post_item';
 
 const mSTP = (state, ownProps) => {
