@@ -12,7 +12,7 @@ export default class PostIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts(this.props.currentUser.username);
+    this.props.fetchPosts(this.props.user.username);
   }
   
   setPost(post) {

@@ -3,9 +3,10 @@ import { deletePost } from '../../../actions/post_actions';
 import { openModal } from '../../../actions/modal_actions';
 import PostIndex from './post_index';
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
   return ({
     currentUser: state.session,
+    user: ownProps.user,
     users: state.entities.users,
     posts: Object.values(state.entities.posts).reverse(),
     comments: Object.values(state.entities.comments)

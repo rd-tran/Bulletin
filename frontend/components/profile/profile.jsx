@@ -16,7 +16,7 @@ class Profile extends React.Component {
     const { user, fetchPosts } = this.props;
 
     if (!user.email) return null;
-    
+
     return (
       <div className="profile-container">
         <div id="cover-container">
@@ -39,7 +39,7 @@ class Profile extends React.Component {
             </div>
           </div>
 
-          <Board fetchPosts={fetchPosts}/>
+          <Board user={user} fetchPosts={fetchPosts}/>
         </div>
       </div>
     )

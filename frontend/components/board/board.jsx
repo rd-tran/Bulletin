@@ -1,11 +1,10 @@
 import React from 'react';
 import PostIndexContainer from '../post/post_index/post_index_container';
 
-
-const Board = ({ fetchPosts }) => {
+const Board = ({ user, fetchPosts }) => {
   return (
     <div className="board-container">
-      <PostIndexContainer fetchPosts={fetchPosts} />
+      <PostIndexContainer user={user} fetchPosts={fetchPosts} />
     </div>
   );
 };
