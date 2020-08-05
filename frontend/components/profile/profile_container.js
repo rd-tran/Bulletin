@@ -7,7 +7,8 @@ import Profile from './profile';
 const mSTP = (state, ownProps) => {
   return ({
     currentUser: state.session,
-    user: state.entities.users[ownProps.match.params.username]
+    user: state.entities.users[ownProps.match.params.username],
+    username: ownProps.match.params.username
   });
 };
 

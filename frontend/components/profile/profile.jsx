@@ -3,19 +3,19 @@ import Board from '../board/board';
 
 class Profile extends React.Component {
   componentDidMount() {
-    this.props.fetchUser(this.props.user.id)
+    this.props.fetchUser(this.props.username)
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.user.username !== this.props.user.username) {
-      this.props.fetchUser(this.props.user.id);
+    if (prevProps.username !== this.props.username) {
+      this.props.fetchUser(this.props.username);
     }
   }
   
   render() {
     const { user, fetchPosts } = this.props;
 
-    if (!user.email) return null;
+    if (!user || !user.email) return null;
 
     return (
       <div className="profile-container">

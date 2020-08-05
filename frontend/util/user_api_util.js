@@ -6,9 +6,9 @@ export const fetchUsers = (username) => {
   });
 };
 
-export const fetchUser = (userId) => {
+export const fetchUser = (username) => {
   return $.ajax({
-    url: `/api/users/${userId}`,
+    url: `/api/users/${username}`,
     method: 'GET'
   });
 };
