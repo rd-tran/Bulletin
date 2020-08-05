@@ -1,6 +1,5 @@
 import React from 'react';
 import Board from '../board/board';
-import BoardContainer from '../board/board_container';
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -8,7 +7,7 @@ class Profile extends React.Component {
   }
   
   render() {
-    const { user } = this.props;
+    const { user, fetchPosts } = this.props;
     
     if (!user.email) return null;
     
@@ -18,8 +17,7 @@ class Profile extends React.Component {
           Cover photo goes here
         </div>
         <div className="content-container">
-          <BoardContainer/>
-          {/* <Board/> */}
+          <Board fetchPosts={fetchPosts}/>
         </div>
       </div>
     )
