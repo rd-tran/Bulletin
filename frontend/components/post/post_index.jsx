@@ -25,7 +25,7 @@ export default class PostIndex extends React.Component {
   }
 
   render() {
-    const { currentUser, users, posts, comments, deletePost } = this.props;
+    const { users, posts, comments } = this.props;
     let postItems;
     
     if (posts.length) {

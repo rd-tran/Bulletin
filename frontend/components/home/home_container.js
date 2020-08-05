@@ -15,11 +15,11 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return ({
-    fetchUsers: (username) => dispatch(fetchUsers(username)),
+    // fetchUsers: (username) => dispatch(fetchUsers(username)),
     fetchPosts: (username) => dispatch(fetchPosts(username, 'newsfeed')),
-    deletePost: (postId) => dispatch(deletePost(postId)),
-    openModal: (modal) => dispatch(openModal(modal))
+    // deletePost: (postId) => dispatch(deletePost(postId)),
+    // openModal: (modal) => dispatch(openModal(modal))
   });
 }
 
-export default connect(mSTP, mDTP)(Home);
+export default connect(null, mDTP)(Home);
