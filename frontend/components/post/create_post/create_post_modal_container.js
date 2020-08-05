@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { createPost } from '../../../actions/post_actions';
 import { closeModal } from '../../../actions/modal_actions';
 import CreatePostModal from './create_post_modal';
 
 const mSTP = (state, ownProps) => {
   return ({
-    user: state.session,
+    currentUser: state.session,
+    board: 
+      state.entities.users[ownProps.match.params.username] || state.session,
     setBody: ownProps.setBody
   });
 }
@@ -18,4 +21,4 @@ const mDTP = (dispatch) => {
   });
 }
 
-export default connect(mSTP, mDTP)(CreatePostModal);
+export default withRouter(connect(mSTP, mDTP)(CreatePostModal));

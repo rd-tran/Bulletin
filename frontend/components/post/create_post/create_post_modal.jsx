@@ -4,8 +4,8 @@ export default class CreatePostModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      author_username: this.props.user.username,
-      board_username: this.props.user.username,
+      author_username: this.props.currentUser.username,
+      board_username: this.props.board.username,
       body: this.props.body,
       disabled: true
     };
