@@ -11,16 +11,10 @@ export default class Home extends React.Component {
     return (
       <div id="home" className="logged-in">
         <Board
-          currentUser={currentUser}
-          users={users}
-          posts={posts}
-          comments={comments}
           fetchPosts={fetchPosts}
-          deletePost={deletePost}
-          openModal={openModal}
         />
       </div>
     );
   }
-  
+
 };

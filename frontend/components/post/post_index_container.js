@@ -12,9 +12,9 @@ const mSTP = (state) => {
   });
 };
 
-const mDTP = (dispatch) => {
+const mDTP = (dispatch, ownProps) => {
   return ({
-    fetchPosts: (username) => dispatch(fetchPosts(username, 'board')),
+    fetchPosts: ownProps.fetchPosts,
     deletePost: (postId) => dispatch(deletePost(postId)),
     openModal: (modal) => dispatch(openModal(modal))
   });
