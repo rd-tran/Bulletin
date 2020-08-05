@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PostMenu from '../post_menu/post_menu';
 import CommentsContainer from '../../comments/comments_container';
 
@@ -23,15 +24,31 @@ export default class PostItem extends React.Component {
     if (author.username === board.username) {
       postHeader = (
         <div className="post item header">
-          { authorName }
+          <Link
+            to={`/u/${author.username}`}
+            className="something"
+          >
+            { authorName }
+          </Link>
         </div>
       );
     } else {
       postHeader = (
         <div className="post item header">
-          { authorName } 
+          <Link
+            to={`/u/${author.username}`}
+            className="something"
+          >
+            { authorName }
+          </Link>
+
           <div className="post item header-separator"></div>
-          { boardName }
+          <Link
+            to={`/u/${author.username}`}
+            className="something"
+          >
+            { boardName }
+          </Link>
         </div>
       );
     }
