@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from '../board/board';
+import Intro from '../intro/intro';
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -25,16 +26,16 @@ class Profile extends React.Component {
         </div>
 
         <div id="content-container">
-          <div className="content-info">
-            <div className="content-info intro">
-              Intro goes here
-            </div>
+          <div className="content">
+            <Intro
+              user={user}
+            />
 
-            <div className="content-info photos">
+            <div className="content">
               Photos go here
             </div>
 
-            <div className="content-info friends">
+            <div className="content">
               Friends go here
             </div>
           </div>
