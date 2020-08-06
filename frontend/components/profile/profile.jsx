@@ -1,6 +1,8 @@
 import React from 'react';
 import Board from '../board/board';
-import Intro from '../intro/intro';
+import IntroContainer from './intro/intro_container';
+import TimelinePhotosContainer from './photos/timeline_photos_container';
+import TimelineFriendsContainer from './friends/timeline_friends_container';
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -25,21 +27,12 @@ class Profile extends React.Component {
           <div className="nav">Profile nav goes here</div>
         </div>
 
-        <div id="content-container">
+        <div id="timeline-container">
           <div className="content">
-            <Intro
-              user={user}
-            />
-
-            <div className="content">
-              Photos go here
-            </div>
-
-            <div className="content">
-              Friends go here
-            </div>
+            <IntroContainer user={user}/>
+            <TimelinePhotosContainer user={user}/>
+            <TimelineFriendsContainer user={user}/>
           </div>
-
           <Board user={user} fetchPosts={fetchPosts}/>
         </div>
       </div>

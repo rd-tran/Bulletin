@@ -6,7 +6,9 @@
   #cover-container {
     width: 851px;
     position: relative;
-    border: 1px solid blue;
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    background-color: white;
     .cover-photo {
       height: 315px;
     }
@@ -15,7 +17,7 @@
       border-top: 1px solid blue;
     }
   }
-  #content-container {
+  #timeline-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,11 +26,69 @@
     .content {
       width: 323px;
       height: fit-content;
-      // Replace this css when I add these components
       & > * {
+        // Remove the height when finished
         height: 200px;
         margin-bottom: 12px;
-        border: 1px solid red;
+        padding: 12px;
+        border: 1px solid #dddfe2;
+        border-radius: 3px;
+        background-color: white;
+      }
+      .header-container {
+        display: flex;
+        align-items: center;
+        color: #1c1e21;
+        font-size: 16px;
+        line-height: 20px;
+        padding-bottom: 4px;
+        .header {
+          margin-left: 8px;
+        }
+      }
+      .intro-container {
+        .globe-icon {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background-image: image-url('icons-2.png');
+          background-position: 0 -58px;
+          background-size: 33px 240px;
+        }
+        .intro-edit-button {
+          width: 100%;
+          box-sizing: border-box;
+          line-height: 26px;
+          margin-bottom: 8px;
+          padding: 0 10px;
+          color: #4b4f56;
+          font-size: 12px;
+          font-weight: bold;
+          border: 1px solid;
+          border-color: #ccd0d5;
+          border-radius: 2px;
+          background-color: #f5f6f7;
+        }
+      }
+    }
+    .photos-container {
+      .photo-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: image-url('icons-2.png');
+        background-position: 0 -34px;
+        background-size: 33px 240px;
+      }
+    }
+    .timeline-friends-container {
+      .timeline-friend-icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-image: image-url('icons-3.png');
+        background-position: 0 0;
+        background-size: 25px 151px;
       }
     }
   }

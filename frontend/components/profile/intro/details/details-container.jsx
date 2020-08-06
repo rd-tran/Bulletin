@@ -26,7 +26,7 @@ function DetailsContainer({ user }) {
       <Relationship relationship={user.relationship}/>
       <NamePronunciation namePronunciation={user.namePronunciation}/>
       <Website website={user.website}/> */}
-      <button>Edit Details</button>
+      <button className="intro-edit-button">Edit Details</button>
     </div>
   )
 }

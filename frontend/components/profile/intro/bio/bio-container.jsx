@@ -5,7 +5,7 @@ function BioContainer({ user }) {
   return (
     <div className="bio-container">
       <Bio bio={user.bio}/>
-      <button>Edit Bio</button>
+      <button className="intro-edit-button">Edit Bio</button>
     </div>
   )
 }
