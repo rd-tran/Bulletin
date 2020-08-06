@@ -1,9 +1,14 @@
 import React from 'react';
+import BioContainer from './bio/bio-container';
+import DetailsContainer from './details/details-container';
 
-function Intro() {  
+function Intro({ user }) {  
+  console.log(user);
+
   return (
-    <div className="intro-container">
-      
+    <div className="intro">
+      <BioContainer user={user}/>
+      <DetailsContainer user={user}/>
     </div>
   )
 }

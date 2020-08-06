@@ -1,9 +1,11 @@
 import React from 'react';
 
-function Work() {  
+function Work({ work }) {  
+  if (!work) return null;
+  
   return (
-    <div className="content-info intro">
-      
+    <div className="details work">
+      {work}
     </div>
   )
 }
