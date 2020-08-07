@@ -14,6 +14,7 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.fetchPosts(this.props.user.username);
   }
+
   
   setPost(post) {
     this.setState({ post: post }, () => this.props.openModal('edit'));
@@ -22,7 +23,7 @@ export default class PostIndex extends React.Component {
   setBody(body) {
     this.setState({ body: body });
   }
-
+  
   render() {
     const { users, posts, comments } = this.props;
     let postItems;

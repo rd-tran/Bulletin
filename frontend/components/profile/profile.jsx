@@ -1,8 +1,10 @@
 import React from 'react';
-import Board from '../board/board';
-import IntroContainer from './intro/intro_container';
-import TimelinePhotosContainer from './photos/timeline_photos_container';
-import TimelineFriendsContainer from './friends/timeline_friends_container';
+import { Switch, Redirect } from 'react-router-dom';
+import { ProtectedRoute } from '../../util/route_utils';
+import TimelineContainer from './timeline/timeline_container';
+import AboutContainer from './about/about_container';
+import FriendsContainer from './friends/friends_container';
+import PhotosContainer from './photos/photos_container';
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -27,14 +29,25 @@ class Profile extends React.Component {
           <div className="nav">Profile nav goes here</div>
         </div>
 
-        <div id="timeline-container">
-          <div className="content">
-            <IntroContainer user={user}/>
-            <TimelinePhotosContainer user={user}/>
-            <TimelineFriendsContainer user={user}/>
-          </div>
-          <Board user={user} fetchPosts={fetchPosts}/>
-        </div>
+        <Switch>
+          <ProtectedRoute
+            path="/u/:username/timeline"
+            component={TimelineContainer}
+          />
+          <ProtectedRoute
+            path="/u/:username/about"
+            component={AboutContainer}
+          />
+          <ProtectedRoute
+            path="/u/:username/friends"
+            component={FriendsContainer}
+          />
+          <ProtectedRoute
+            path="/u/:username/photos"
+            component={PhotosContainer}
+          />
+          <Redirect to="/u/:username/timeline"/>
+        </Switch>
       </div>
     )
   }

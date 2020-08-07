@@ -18,7 +18,7 @@ const App = () => {
           component={SignupFormContainer}
         />
         <ProtectedRoute path="/u/:username" component={ProfileContainer}/>
-        <Redirect to ="/" />
+        <Redirect to="/"/>
       </Switch>
     </div>
   )

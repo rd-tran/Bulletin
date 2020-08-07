@@ -70,25 +70,25 @@
           background-color: #f5f6f7;
         }
       }
-    }
-    .photos-container {
-      .photo-icon {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        background-image: image-url('icons-2.png');
-        background-position: 0 -34px;
-        background-size: 33px 240px;
+      .timeline-photos-container {
+        .timeline-photo-icon {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background-image: image-url('icons-2.png');
+          background-position: 0 -34px;
+          background-size: 33px 240px;
+        }
       }
-    }
-    .timeline-friends-container {
-      .timeline-friend-icon {
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        background-image: image-url('icons-3.png');
-        background-position: 0 0;
-        background-size: 25px 151px;
+      .timeline-friends-container {
+        .timeline-friend-icon {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background-image: image-url('icons-3.png');
+          background-position: 0 0;
+          background-size: 25px 151px;
+        }
       }
     }
   }
