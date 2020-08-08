@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_utils';
+import CoverPhotoContainer from './cover_photo/cover_photo_container';
+import ProfileNavContainer from './nav/profile_nav_container';
 import TimelineContainer from './timeline/timeline_container';
 import AboutContainer from './about/about_container';
 import FriendsContainer from './friends/friends_container';
@@ -23,27 +25,23 @@ class Profile extends React.Component {
     if (!user || !user.email) return null;
 
     return (
-      <div className="profile-container">
+      <div id="profile-container">
         <div id="cover-container">
-          <div className="cover-photo">Cover Photo goes here</div>
-          <div className="nav">Profile nav goes here</div>
+          <CoverPhotoContainer/>
+          <ProfileNavContainer/>
         </div>
 
         <Switch>
-          <ProtectedRoute
-            path="/u/:username/timeline"
+          <ProtectedRoute path="/u/:username/timeline"
             component={TimelineContainer}
           />
-          <ProtectedRoute
-            path="/u/:username/about"
+          <ProtectedRoute path="/u/:username/about"
             component={AboutContainer}
           />
-          <ProtectedRoute
-            path="/u/:username/friends"
+          <ProtectedRoute path="/u/:username/friends"
             component={FriendsContainer}
           />
-          <ProtectedRoute
-            path="/u/:username/photos"
+          <ProtectedRoute path="/u/:username/photos"
             component={PhotosContainer}
           />
           <Redirect to="/u/:username/timeline"/>

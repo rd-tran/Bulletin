@@ -16,7 +16,7 @@ const TimelineContainer = ({ match }) => {
 
   return (
     <div id="timeline-container">
-      <div className="content">
+      <div className="timeline-content">
         <IntroContainer user={user}/>
         <TimelinePhotosContainer user={user}/>
         <TimelineFriendsContainer user={user}/>
