@@ -4,7 +4,7 @@ import { ProtectedRoute } from '../../util/route_utils';
 import CoverPhotoContainer from './cover_photo/cover_photo_container';
 import ProfileNavContainer from './nav/profile_nav_container';
 import TimelineContainer from './timeline/timeline_container';
-import AboutContainer from './about/about_container';
+import MedleyContainer from './medley/medley_container';
 import FriendsContainer from './friends/friends_container';
 import PhotosContainer from './photos/photos_container';
 
@@ -20,7 +20,7 @@ class Profile extends React.Component {
   }
   
   render() {
-    const { user, fetchPosts } = this.props;
+    const { user } = this.props;
 
     if (!user || !user.email) return null;
 
@@ -36,7 +36,7 @@ class Profile extends React.Component {
             component={TimelineContainer}
           />
           <ProtectedRoute path="/u/:username/about"
-            component={AboutContainer}
+            component={MedleyContainer}
           />
           <ProtectedRoute path="/u/:username/friends"
             component={FriendsContainer}

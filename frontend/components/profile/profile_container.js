@@ -6,7 +6,6 @@ import Profile from './profile';
 
 const mSTP = (state, ownProps) => {
   return ({
-    currentUser: state.session,
     user: state.entities.users[ownProps.match.params.username],
     username: ownProps.match.params.username
   });
@@ -14,8 +13,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
   return ({
-    fetchUser: (userId) => dispatch(fetchUser(userId)),
-    fetchPosts: (username) => dispatch(fetchPosts(username, 'board')),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 };
 

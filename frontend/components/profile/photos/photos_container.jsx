@@ -17,7 +17,7 @@ const PhotosContainer = ({ location }) => {
   }
   
   return (
-    <div className="photos-container">
+    <div className="profile-info photos-container">
 
     </div>
   );

@@ -17,7 +17,7 @@ const FriendsContainer = ({ location }) => {
   }
   
   return (
-    <div className="friends-container">
+    <div className="profile-info friends-container">
 
     </div>
   );
