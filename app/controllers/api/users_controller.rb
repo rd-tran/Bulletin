@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:id])
+    debugger
     render :show
   end
 

@@ -9,10 +9,17 @@ const receiveAllUsers = (users) => ({
   users
 });
 
-const receiveUser = (user) => ({
-  type: RECEIVE_CURRENT_USER,
-  user
-});
+// const receiveUser = (user) => ({
+//   type: RECEIVE_CURRENT_USER,
+//   user
+// });
+const receiveUser = ({ user, friends }) => {
+  return ({
+    type: RECEIVE_CURRENT_USER,
+    user,
+    friends
+  });
+};
 
 const receiveUserErrors = (errors) => ({
   type: RECEIVE_USER_ERRORS,
@@ -28,10 +35,13 @@ export const fetchUsers = (username) => (dispatch) => {
   );
 };
 
-export const fetchUser = (userId) => (dispatch) => {
+export const fetchUser = (username) => (dispatch) => {
   return (
-    UserApiUtil.fetchUser(userId)
-      .then( user => dispatch(receiveUser(user)))
+    UserApiUtil.fetchUser(username)
+      .then( user => {
+        debugger
+        dispatch(receiveUser(user))
+      })
   );
 };
 
