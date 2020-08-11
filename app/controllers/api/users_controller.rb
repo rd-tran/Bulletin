@@ -20,8 +20,8 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(username: params[:id])
-    debugger
+    @user = User.includes(:friends).find_by(username: params[:id])
+    @user.friends_arr = @user.friends.map(&:username)
     render :show
   end
 

@@ -9,17 +9,11 @@ const receiveAllUsers = (users) => ({
   users
 });
 
-// const receiveUser = (user) => ({
-//   type: RECEIVE_CURRENT_USER,
-//   user
-// });
-const receiveUser = ({ user, friends }) => {
-  return ({
-    type: RECEIVE_CURRENT_USER,
-    user,
-    friends
-  });
-};
+const receiveUser = ({ user, friends }) => ({
+  type: RECEIVE_CURRENT_USER,
+  user,
+  friends
+});
 
 const receiveUserErrors = (errors) => ({
   type: RECEIVE_USER_ERRORS,

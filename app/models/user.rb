@@ -64,6 +64,7 @@ class User < ApplicationRecord
            source: :friend
 
   attr_reader :password
+  attr_accessor :friends_arr
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

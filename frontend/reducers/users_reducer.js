@@ -15,9 +15,6 @@ const UsersReducer = (state = {}, action) => {
     case RECEIVE_ALL_USERS:
       return action.users;
     case RECEIVE_CURRENT_USER:
-      // nextState[action.user.username] = action.user;
-      // return nextState;
-      debugger
       nextState[action.user.username] = action.user;
       return {...nextState, ...action.friends};
     case RECEIVE_ALL_POSTS:
