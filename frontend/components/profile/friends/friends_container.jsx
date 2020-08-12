@@ -1,9 +1,11 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 import FriendItem from './friend_item';
+import { fetchUser } from '../../../actions/user_actions';
 
 const FriendsContainer = ({ match }) => {
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.session);
   const user = useSelector((state) => {
     return state.entities.users[match.params.username];
@@ -12,6 +14,12 @@ const FriendsContainer = ({ match }) => {
     useSelector((state) => state.entities.users[friend_username])
   ));
 
+  useEffect(() => {
+    dispatch(fetchUser(user.username))
+  }, []);
+
+  if (!friends[0].friends_arr || !friends[0].friends_arr.length) return null;
+  
   const pathParts = location.pathname.split('/');
   const lastPathPart = pathParts[pathParts.length - 1];
   let friendItems, seeAllButton;
@@ -34,7 +42,7 @@ const FriendsContainer = ({ match }) => {
   return (
     <div id="friends-container" className="profile-info">
       <div className="header-container">
-        <i className="friends-icon"></i>
+        <img className="friends-icon"></img>
         <Link to={`/u/${match.params.username}/friends`}>
           Friends
         </Link>

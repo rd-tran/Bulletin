@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 const FriendItem = ({ friend }) => {
   return (
     <li className="friend-item">
-      <Link to="profile-picture-container"
+      <Link to={`/u/${friend.username}`}
         className="profile-picture-container"
       >
         <div className="profile-picture">Img</div>

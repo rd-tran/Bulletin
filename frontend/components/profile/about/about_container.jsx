@@ -15,10 +15,10 @@ const AboutContainer = ({ match }) => {
   return (
     <div id="about-container" className="profile-info">
       <div className="header-container">
-        <i className="profile-icon"></i>
-        <Link to={`/u/${match.params.username}/about`}
-          className="about-header"
-        >About</Link>
+        <img className="profile-icon"></img>
+        <Link to={`/u/${match.params.username}/about`}>
+          About
+        </Link>
       </div>
 
       <section className="about-section">

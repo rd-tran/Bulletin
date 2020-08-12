@@ -130,16 +130,26 @@
     background: #f5f6f7;
     border-bottom: 1px solid #d3d6db;
     border-radius: 2px 2px 0 0;
-    margin-bottom: 15px;
     padding-top: 16px;
     padding-bottom: 12px;
+  }
+  .see-all {
+    color: #385898;
+    font-size: 12px;
+    font-weight: 600;
+    background: #f5f6f7;
+    border-radius: 0 0 2px 2px;
+    border-top: 1px solid #d3d6db;
+    display: block;
+    padding: 15px 0;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
 #about-container {
-  .header-container {
-    margin-bottom: 0;
-  }
   .profile-icon {
     width: 24px;
     height: 24px;
@@ -179,6 +189,9 @@
 }
 
 #friends-container {
+  .header-container {
+    margin-bottom: 15px;
+  }
   .friends-icon {
     width: 24px;
     height: 24px;
@@ -255,16 +268,19 @@
       }
     }
   }
-  .see-all {
-    color: #385898;
-    font-size: 12px;
-    font-weight: 600;
-    background: #f5f6f7;
-    border-radius: 0 0 2px 2px;
-    border-top: 1px solid #d3d6db;
-    display: block;
-    // margin: 0 -14px 0 -15px;
-    padding: 15px 0;
-    text-align: center;
+}
+
+#photos-container {
+  .photos-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+    margin-right: 9px;
+  }
+  .photo-item {
+    .photo {
+      width: 206px;
+      height: 206px;
+    }
   }
 }

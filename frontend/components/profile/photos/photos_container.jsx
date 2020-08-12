@@ -1,24 +1,63 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
+import PhotoItem from './photo_item';
 
-const PhotosContainer = ({ location }) => {
-  const pathParts = location.pathname.split('/');
-  const lastPathPart = pathParts[pathParts.length - 1];
+const PhotosContainer = ({ match, location }) => {
+  const currentUser = useSelector((state) => state.session);
+  const user = useSelector((state) => {
+    return state.entities.users[match.params.username];
+  });
+  const photos = user.photos_arr;
+  
+  // ! Uncomment when I add photos
+  // const pathParts = location.pathname.split('/');
+  // const lastPathPart = pathParts[pathParts.length - 1];
+  // let photoItems, seeAllButton;
+  // if (lastPathPart !== 'photos' && photos.length > 8) {
+  //   photoItems = photos.slice(0, 8).map((photo, idx) => 
+  //     <PhotoItem key={idx} photo={photo}/>
+  //   );
 
-  /**
-   * ? Leaving this `pseudocode` here
-   * * Reminder:
-   *   ! Limit the number of elements being displayed if not proper path
-   *   ! Add see all button that redirects to the proper path
-   */
-  let limit;
-  if (lastPathPart != 'photos') {
-    limit = true;
-  }
+  //   seeAllButton =  <Link to={`/u/${match.params.username}/photos`}
+  //                     className="see-all"
+  //                   >
+  //                     See All
+  //                   </Link>
+  // } else {
+  //   photoItems = photos.map((photo, idx) => 
+  //     <PhotoItem key={idx} photo={photo}/>
+  //   );
+  // }
+  
+  const photoItems = new Array(8).fill(0).map((photo, idx) => {
+    photo = {url: location.pathname};
+    return (
+      <PhotoItem key={idx} photo={photo}/>  
+    );
+  });
+  const seeAllButton =  <Link to={`/u/${match.params.username}/photos`}
+                          className="see-all"
+                        >
+                          See All
+                        </Link>
+
+  console.log(photoItems);
   
   return (
-    <div className="profile-info photos-container">
+    <div id="photos-container" className="profile-info">
+      <div className="header-container">
+        <img className="photos-icon"></img>
+        <Link to={`/u/${match.params.username}/photos`}>
+          Photos
+        </Link>
+      </div>
 
+      <ul className="photo-index">
+        {photoItems}
+      </ul>
+
+      {seeAllButton}
     </div>
   );
 };
