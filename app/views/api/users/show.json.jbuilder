@@ -17,6 +17,7 @@ json.friends do
   @user.friends.each do |friend|
     json.set! friend.username do
       json.extract! friend, :id, :fname, :lname, :username
+      json.friends_arr friend.friends.map(&:username)
     end
   end
 end
