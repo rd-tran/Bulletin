@@ -18,7 +18,9 @@ const FriendsContainer = ({ match }) => {
     dispatch(fetchUser(user.username))
   }, []);
 
-  if (!friends[0].friends_arr || !friends[0].friends_arr.length) return null;
+  if (!friends.length || !friends.every((friend) => friend.friends_arr)) {
+    return null;
+  }
   
   const pathParts = location.pathname.split('/');
   const lastPathPart = pathParts[pathParts.length - 1];
