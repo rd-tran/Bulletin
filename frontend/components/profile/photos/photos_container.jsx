@@ -9,6 +9,7 @@ const PhotosContainer = ({ match, location }) => {
     return state.entities.users[match.params.username];
   });
   const photos = user.photos_arr;
+  
   // ! Uncomment when I add photos
   // if (!photos.length) return null;
 
@@ -31,6 +32,7 @@ const PhotosContainer = ({ match, location }) => {
   //   );
   // }
   
+  // ! Remove when I add photos
   const photoItems = new Array(8).fill(0).map((photo, idx) => {
     photo = {url: location.pathname};
     return (
