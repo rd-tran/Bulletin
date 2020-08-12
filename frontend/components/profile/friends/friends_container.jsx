@@ -1,24 +1,18 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import FriendIndex from './friend_index';
 
-const FriendsContainer = ({ location }) => {
-  const pathParts = location.pathname.split('/');
-  const lastPathPart = pathParts[pathParts.length - 1];
-
-  /**
-   * ? Leaving this `pseudocode` here
-   * * Reminder:
-   *   ! Limit the number of elements being displayed if not proper path
-   *   ! Add see all button that redirects to the proper path
-   */
-  let limit;
-  if (lastPathPart != 'friends') {
-    limit = true;
-  }
-  
+const FriendsContainer = ({ match }) => {
   return (
-    <div className="profile-info friends-container">
+    <div id="friends-container" className="profile-info">
+      <div className="header-container">
+        <i className="friends-icon"></i>
+        <Link to={`/u/${match.params.username}/friends`}>
+          Friends
+        </Link>
+      </div>
 
+      <FriendIndex/>
     </div>
   );
 };

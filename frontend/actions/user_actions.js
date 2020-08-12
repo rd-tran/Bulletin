@@ -33,7 +33,6 @@ export const fetchUser = (username) => (dispatch) => {
   return (
     UserApiUtil.fetchUser(username)
       .then( user => {
-        debugger
         dispatch(receiveUser(user))
       })
   );
