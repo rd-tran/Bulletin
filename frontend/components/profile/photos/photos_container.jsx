@@ -9,8 +9,9 @@ const PhotosContainer = ({ match, location }) => {
     return state.entities.users[match.params.username];
   });
   const photos = user.photos_arr;
-  
   // ! Uncomment when I add photos
+  // if (!photos.length) return null;
+
   // const pathParts = location.pathname.split('/');
   // const lastPathPart = pathParts[pathParts.length - 1];
   // let photoItems, seeAllButton;
@@ -36,13 +37,17 @@ const PhotosContainer = ({ match, location }) => {
       <PhotoItem key={idx} photo={photo}/>  
     );
   });
-  const seeAllButton =  <Link to={`/u/${match.params.username}/photos`}
-                          className="see-all"
-                        >
-                          See All
-                        </Link>
 
-  console.log(photoItems);
+  const pathParts = location.pathname.split('/');
+  const lastPathPart = pathParts[pathParts.length - 1];
+  let seeAllButton;
+  if (lastPathPart !== 'photos') {
+    seeAllButton =  <Link to={`/u/${match.params.username}/photos`}
+                      className="see-all"
+                    >
+                      See All
+                    </Link>
+  }
   
   return (
     <div id="photos-container" className="profile-info">

@@ -271,16 +271,25 @@
 }
 
 #photos-container {
+  .header-container {
+    margin-bottom: 4px;
+  }
   .photos-icon {
     width: 24px;
     height: 24px;
     margin-left: 12px;
     margin-right: 9px;
   }
+  .photo-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
   .photo-item {
     .photo {
       width: 206px;
       height: 206px;
+      margin: 2px 3px 3px 2px;
     }
   }
 }

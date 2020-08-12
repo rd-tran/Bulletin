@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom';
 const PhotoItem = ({ photo }) => {
   return (
     <li className="photo-item">
-      <Link to={`/u/${photo.url}`}
+      <Link to={photo.url}
         className="profile-picture-container"
       >
         <img className="photo"></img>
