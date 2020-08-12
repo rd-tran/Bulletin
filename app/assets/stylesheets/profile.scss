@@ -185,11 +185,15 @@
     margin-left: 12px;
     margin-right: 9px;
   }
+  .friend-index {
+    display: flex;
+    justify-content: space-evenly;
+  }
   .friend-item {
     border: 1px solid #e9ebee;
     display: inline-flex;
     align-items: center;
-    margin: 0 0 13px 13px;
+    margin: 0 0 13px 0;
     padding: 0 10px 0 0;
     position: relative;
     vertical-align: top;
@@ -250,5 +254,17 @@
         }
       }
     }
+  }
+  .see-all {
+    color: #385898;
+    font-size: 12px;
+    font-weight: 600;
+    background: #f5f6f7;
+    border-radius: 0 0 2px 2px;
+    border-top: 1px solid #d3d6db;
+    display: block;
+    // margin: 0 -14px 0 -15px;
+    padding: 15px 0;
+    text-align: center;
   }
 }

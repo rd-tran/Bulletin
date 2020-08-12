@@ -21,7 +21,7 @@ const FriendItem = ({ friend }) => {
           <Link to={`/u/${friend.username}/friends`}
             className="friend-count"
             >
-            {`${'insert #'} friends`}
+            {`${friend.friends_arr.length} friends`}
           </Link>
         </div>
 
