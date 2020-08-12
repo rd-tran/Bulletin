@@ -10,12 +10,24 @@ const FriendItem = ({ friend }) => {
         <div className="profile-picture">Img</div>
       </Link>
 
-      <div className="details">
-        <Link to={`/u/${friend.username}`}
-          className="name"
-        >
-          {`${friend.fname} ${friend.lname}`}
-        </Link>
+      <div className="details-container">
+        <div className="details">
+          <Link to={`/u/${friend.username}`}
+            className="name"
+            >
+            {`${friend.fname} ${friend.lname}`}
+          </Link>
+
+          <Link to={`/u/${friend.username}/friends`}
+            className="friend-count"
+            >
+            {`${'insert #'} friends`}
+          </Link>
+        </div>
+      </div>
+
+      <div className="friendship-status-container">
+        <div className="friendship-status">Friends</div>
       </div>
     </li>
   );
