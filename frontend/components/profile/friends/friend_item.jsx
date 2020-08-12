@@ -24,9 +24,7 @@ const FriendItem = ({ friend }) => {
             {`${'insert #'} friends`}
           </Link>
         </div>
-      </div>
 
-      <div className="friendship-status-container">
         <div className="friendship-status">Friends</div>
       </div>
     </li>
