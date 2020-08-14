@@ -26,7 +26,6 @@ export const fetchPosts = (username, type) => (dispatch) => {
   PostApiUtil.fetchPosts(username, type)
     .then( posts => {
       if (type === 'newsfeed') {
-        debugger
         dispatch(receiveAllPosts(posts)) 
       } else if (type === 'board') {
         dispatch(receiveAllPosts({ ...posts, username })) 

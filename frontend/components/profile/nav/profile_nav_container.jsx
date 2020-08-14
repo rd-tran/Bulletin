@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 const ProfileNavContainer = ({ match, location }) => {
   const pathParts = location.pathname.split('/');
   const lastPathPart = pathParts[pathParts.length - 1];
-  console.log(lastPathPart)
   const timelineActive = lastPathPart === 'timeline' ? 'active' : '';
   const aboutActive = lastPathPart === 'about' ? 'active' : '';
   const friendsActive = lastPathPart === 'friends' ? 'active' : '';
