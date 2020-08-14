@@ -20,7 +20,7 @@
     height: 43px;
     padding-left: 201px;
     .profile-nav-button {
-      padding: 0 17px;
+      color: #385898;
       border-right: 1px solid #e9eaed;
       float: left;
       font-size: 14px;
@@ -33,6 +33,25 @@
       white-space: nowrap;
       &:first-of-type {
         border-left: 1px solid #e9eaed;
+      }
+      .active {
+        color: #4b4f56;
+      }
+      .active-icon {
+        background-image: image-url('icons-4.png');
+        background-repeat: no-repeat;
+        background-size: 21px 189px;
+        background-position: 0 -119px;
+        bottom: -1px;
+        display: none;
+        height: 9px;
+        left: 50%;
+        margin-left: -8px;
+        position: absolute;
+        width: 17px;
+        &.active {
+          display: block;
+        }
       }
     }
   }
