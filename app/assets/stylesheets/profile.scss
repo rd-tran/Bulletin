@@ -253,6 +253,7 @@
         justify-content: center;
         height: 24px;
         color: #4b4f56;
+        background-color: #f5f6f7;
         border: 1px solid #ccd0d5;
         border-radius: 2px;
         box-sizing: border-box;
@@ -262,8 +263,18 @@
         position: relative;
         text-align: center;
         text-shadow: none;
+        transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
         &:hover {
-          background-color: #f5f6f7;
+          background-color: #ebedf0;
+        }
+        &.not-friends {
+          color: #fff;
+          background-color: #4267b2;
+          border-color: #4267b2;
+          &:hover {
+            background-color: #365899;
+            border-color: #365899;
+          }
         }
       }
     }

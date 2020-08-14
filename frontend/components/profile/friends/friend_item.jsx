@@ -1,7 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
 const FriendItem = ({ friend }) => {
+  const currentUser = useSelector((state) => state.session);
+  let friendshipStatus;
+  if (currentUser.friends_arr.includes(friend.username)) {
+    friendshipStatus = <div className="friendship-status friends">
+                         Friends
+                       </div>;
+  } else if (currentUser.username !== friend.username) {
+    friendshipStatus = <div className="friendship-status not-friends">
+                         Add Friend
+                       </div>;
+  }
+  
   return (
     <li className="friend-item">
       <Link to={`/u/${friend.username}`}
@@ -25,7 +38,7 @@ const FriendItem = ({ friend }) => {
           </Link>
         </div>
 
-        <div className="friendship-status">Friends</div>
+        {friendshipStatus}
       </div>
     </li>
   );

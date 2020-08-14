@@ -23,15 +23,18 @@ json.users do
   @posts.each do |post|
     json.set! post.author.username do
       json.extract! post.author, :id, :fname, :lname, :username
+      json.friends_arr post.author.friends.map(&:username)
     end
 
     json.set! post.board.username do
       json.extract! post.board, :id, :fname, :lname, :username
+      json.friends_arr post.board.friends.map(&:username)
     end
 
     post.comments.each do |comment|
       json.set! comment.author.username do
         json.extract! comment.author, :id, :fname, :lname, :username
+        json.friends_arr comment.author.friends.map(&:username)
       end
     end
   end

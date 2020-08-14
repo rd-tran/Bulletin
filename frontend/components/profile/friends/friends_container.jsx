@@ -6,7 +6,6 @@ import { fetchUser } from '../../../actions/user_actions';
 
 const FriendsContainer = ({ match }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.session);
   const user = useSelector((state) => {
     return state.entities.users[match.params.username];
   });
