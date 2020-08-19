@@ -19,6 +19,8 @@ class Api::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.last
+    render :show
   end
 
   def create
