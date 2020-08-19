@@ -139,7 +139,7 @@ export default class PostItem extends React.Component {
 
           <div className="post item body">
             {post.body}
-            <img src={post.photoUrl}/>
+            <img className="photo" src={post.photoUrl}/>
           </div>
         </div>
 
