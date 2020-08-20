@@ -155,7 +155,7 @@
 }
 
 .post-form.body-container {
-  height: 80px;
+  min-height: 80px;
   width: 100%;
   padding: 23px 12px 13px 12px;
 }
@@ -175,6 +175,10 @@
   &:focus {
     outline: none;
   }
+}
+
+.post-form.photo {
+  width: 100%;
 }
 
 .post-form.button-container {

@@ -6,9 +6,10 @@ import Modal from '../../modal/modal';
 export default class PostIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { post: {}, body: '' }
+    this.state = { post: {}, body: '', photoFile: null, photoUrl: null }
     this.setPost = this.setPost.bind(this);
     this.setBody = this.setBody.bind(this);
+    this.setFile = this.setFile.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +23,20 @@ export default class PostIndex extends React.Component {
   
   setBody(body) {
     this.setState({ body: body });
+  }
+
+  setFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ photoFile: file, photoUrl: fileReader.result },
+        () => this.props.openModal('create')
+      )
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
   
   render() {
@@ -51,11 +66,15 @@ export default class PostIndex extends React.Component {
       <div className="post container">
         <PostFormContainer
           body={this.state.body}
+          setFile={this.setFile}
         />
         <Modal
           post={this.state.post}
           body={this.state.body}
           setBody={this.setBody}
+          photoFile={this.state.photoFile}
+          photoUrl={this.state.photoUrl}
+          setFile={this.setFile}
         />
         <ul className="post index container">
           { postItems }

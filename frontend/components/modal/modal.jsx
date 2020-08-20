@@ -6,7 +6,9 @@ import CreatePostModalContainer from
 import EditPostModalContainer from
   '../post/edit_post/edit_post_modal_container';
 
-function Modal({modal, closeModal, post, body, setBody}) {
+function Modal({
+  modal, closeModal, post, body, setBody, photoFile, photoUrl, setFile
+}) {
   if (!modal) {
     return null;
   }
@@ -14,7 +16,11 @@ function Modal({modal, closeModal, post, body, setBody}) {
   let type;
   switch (modal) {
     case 'create':
-      component = <CreatePostModalContainer body={body} setBody={setBody} />;
+      // component = <CreatePostModalContainer body={body} setBody={setBody} />;
+      component = <CreatePostModalContainer
+                    body={body} setBody={setBody}
+                    photoFile={photoFile} photoUrl={photoUrl} setFile={setFile}
+                  />;
       type = <div className="post-form type">Create Post</div>;
       break;
     case 'edit':
@@ -39,7 +45,10 @@ const mapStateToProps = (state, ownProps) => {
     modal: state.modal,
     post: ownProps.post,
     body: ownProps.body,
-    setbody: ownProps.setBody
+    setbody: ownProps.setBody,
+    photoFile: ownProps.photoFile,
+    photoUrl: ownProps.photoUrl,
+    setFile: ownProps.setFile
   };
 };
 

@@ -25,6 +25,10 @@ export default class PostForm extends React.Component {
               readOnly
             />
           </div>
+
+          <input type="file"
+            onChange={(e) => this.props.setFile(e)}
+          />
         </div>
       </div>
     );

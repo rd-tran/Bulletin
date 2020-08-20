@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
     currentUser: state.session,
     board: 
       state.entities.users[ownProps.match.params.username] || state.session,
-    setBody: ownProps.setBody
+    setBody: ownProps.setBody,
+    setFile: ownProps.setFile
   });
 }
 
