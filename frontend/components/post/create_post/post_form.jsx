@@ -2,6 +2,8 @@ import React from 'react';
 
 export default class PostForm extends React.Component {
   render() {
+    const photoActive = this.props.photoUrl ? 'active' : '';
+    
     return (
       <div className="post-form container">
         <div className="post-form-header container">
@@ -25,7 +27,6 @@ export default class PostForm extends React.Component {
               readOnly
             />
           </div>
-
         </div>
 
         <div className="post-form photo-input-container">
@@ -33,8 +34,9 @@ export default class PostForm extends React.Component {
             id="photo-input"
             onChange={(e) => this.props.setFile(e)}
           />
-
-          <label for="photo-input" className="post-form photo-upload">
+          <label htmlFor="photo-input"
+            className={`post-form photo-upload ${photoActive}`}
+          >
             <div className="post-form photo-icon"></div>
             <div className="post-form photo-text">Photo</div>
           </label>

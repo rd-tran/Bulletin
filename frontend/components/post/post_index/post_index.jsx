@@ -26,16 +26,22 @@ export default class PostIndex extends React.Component {
   }
 
   setFile(e) {
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({ photoFile: file, photoUrl: fileReader.result },
-        () => this.props.openModal('create')
-      )
-    };
+    if (e) {
+      const file = e.currentTarget.files[0];
+      const fileReader = new FileReader();
+      fileReader.onloadend = () => {
+        this.setState({ photoFile: file, photoUrl: fileReader.result },
+          () => this.props.openModal('create')
+        )
+      };
 
-    if (file) {
-      fileReader.readAsDataURL(file);
+      if (file) {
+        fileReader.readAsDataURL(file);
+      }
+      // console.log('Attaching photo')
+    } else {
+      // console.log('Removing photo')
+      this.setState({ photoFile: null, photoUrl: null });
     }
   }
   
@@ -66,6 +72,8 @@ export default class PostIndex extends React.Component {
       <div className="post container">
         <PostFormContainer
           body={this.state.body}
+          photoFile={this.state.photoFile}
+          photoUrl={this.state.photoUrl}
           setFile={this.setFile}
         />
         <Modal

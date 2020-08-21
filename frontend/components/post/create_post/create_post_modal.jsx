@@ -1,4 +1,5 @@
 import React from 'react';
+import PostPhoto from '../post_photo/post_photo';
 
 export default class CreatePostModal extends React.Component {
   constructor(props) {
@@ -7,8 +8,7 @@ export default class CreatePostModal extends React.Component {
       author_username: this.props.currentUser.username,
       board_username: this.props.board.username,
       body: this.props.body,
-      photoFile: this.props.photoFile,
-      photoUrl: this.props.photoUrl,
+      darken: '',
       disabled: true
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,7 +41,7 @@ export default class CreatePostModal extends React.Component {
     formData.append('post[board_username]', this.state.board_username);
     formData.append('post[body]', this.state.body);
     if (this.state.photoFile) {
-      formData.append('post[photo]', this.state.photoFile);
+      formData.append('post[photo]', this.props.photoFile);
     }
       
     this.props.createPost(formData);
@@ -50,9 +50,8 @@ export default class CreatePostModal extends React.Component {
   }
 
   render() {
-    const preview = this.state.photoUrl ? 
-            <img src={this.state.photoUrl} className="post-form photo"/> : null
-    
+    const photoActive = this.props.photoUrl ? 'active' : '';
+    // console.log(this.props.photoUrl ? 'Attached' : 'Not Attached')
     return (
       <form onSubmit={this.handleSubmit} className="post-form form">
         <div className="post-form details">
@@ -68,9 +67,24 @@ export default class CreatePostModal extends React.Component {
               className="post-form body create"
               onChange={this.handleChange('body')}
             />
-            {preview}
           </div>
         </div>
+
+        <PostPhoto photoUrl={this.props.photoUrl} setFile={this.props.setFile}/>
+        
+        <div className="post-form photo-input-container">
+          <input type="file"
+            id="photo-input"
+            onChange={(e) => this.props.setFile(e)}
+          />
+          <label htmlFor="photo-input"
+            className={`post-form photo-upload ${photoActive}`}
+          >
+            <div className="post-form photo-icon"></div>
+            <div className="post-form photo-text">Photo</div>
+          </label>
+        </div>
+        
         <div className="post-form button-container">
           <button
             className="post-form button"
