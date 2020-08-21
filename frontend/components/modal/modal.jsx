@@ -16,7 +16,6 @@ function Modal({
   let type;
   switch (modal) {
     case 'create':
-      // component = <CreatePostModalContainer body={body} setBody={setBody} />;
       component = <CreatePostModalContainer
                     body={body} setBody={setBody}
                     photoFile={photoFile} photoUrl={photoUrl} setFile={setFile}

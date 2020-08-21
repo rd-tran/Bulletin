@@ -26,9 +26,18 @@ export default class PostForm extends React.Component {
             />
           </div>
 
+        </div>
+
+        <div className="post-form photo-input-container">
           <input type="file"
+            id="photo-input"
             onChange={(e) => this.props.setFile(e)}
           />
+
+          <label for="photo-input" className="post-form photo-upload">
+            <div className="post-form photo-icon"></div>
+            <div className="post-form photo-text">Photo</div>
+          </label>
         </div>
       </div>
     );

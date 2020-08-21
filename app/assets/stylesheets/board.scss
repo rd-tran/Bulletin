@@ -177,6 +177,39 @@
   }
 }
 
+.post-form.photo-input-container {
+  border-top: 1px solid #e9ebee;
+  margin: 0 12px;
+  padding: 8px 0;
+  #photo-input {
+    display: none;
+  }
+  .post-form.photo-upload {
+    display: inline-block;
+    background: #f5f6f7;
+    border-radius: 18px;
+    cursor: pointer;
+    position: relative;
+    .post-form.photo-icon {
+      
+    }
+    .post-form.photo-text {
+      box-sizing: border-box;
+      color: #4b4f56;
+      display: inline-block;
+      font-weight: 600;
+      height: 32px;
+      line-height: 32px;
+      overflow: hidden;
+      padding: 0 15px 0 35px;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+      white-space: nowrap;
+      width: 100%;
+    }
+  }
+}
+
 .post-form.photo {
   width: 100%;
 }
