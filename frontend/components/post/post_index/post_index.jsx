@@ -38,9 +38,7 @@ export default class PostIndex extends React.Component {
       if (file) {
         fileReader.readAsDataURL(file);
       }
-      // console.log('Attaching photo')
     } else {
-      // console.log('Removing photo')
       this.setState({ photoFile: null, photoUrl: null });
     }
   }

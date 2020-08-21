@@ -33,9 +33,6 @@ export default class CreatePostModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // const post = ( ({author_username, board_username, body}) => (
-    //   {author_username, board_username, body}
-    // ))(this.state);
     const formData = new FormData();
     formData.append('post[author_username]', this.state.author_username);
     formData.append('post[board_username]', this.state.board_username);
@@ -51,7 +48,7 @@ export default class CreatePostModal extends React.Component {
 
   render() {
     const photoActive = this.props.photoUrl ? 'active' : '';
-    // console.log(this.props.photoUrl ? 'Attached' : 'Not Attached')
+
     return (
       <form onSubmit={this.handleSubmit} className="post-form form">
         <div className="post-form details">
