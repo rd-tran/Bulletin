@@ -37,12 +37,14 @@ export default class CreatePostModal extends React.Component {
     formData.append('post[author_username]', this.state.author_username);
     formData.append('post[board_username]', this.state.board_username);
     formData.append('post[body]', this.state.body);
-    if (this.state.photoFile) {
+    if (this.props.photoFile) {
       formData.append('post[photo]', this.props.photoFile);
     }
       
     this.props.createPost(formData);
     this.props.setBody('');
+    this.props.setFile();
+    document.getElementById('photo-input').value = null;
     this.props.closeModal();
   }
 

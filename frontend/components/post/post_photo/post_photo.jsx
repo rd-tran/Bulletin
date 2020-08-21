@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 export default function PostPhoto({ photoUrl, setFile }) {
   const [darken, setDarken] = useState('');
   const photoInput = document.getElementById('photo-input');
+  
   if (photoUrl) {
     return (
       <div className="post-form photo-container"
