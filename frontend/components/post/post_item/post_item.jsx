@@ -20,6 +20,7 @@ export default class PostItem extends React.Component {
     const authorName = author.fname + ' ' + author.lname
     const boardName = board.fname + ' ' + board.lname
 
+    
     let postHeader;
     if (author.username === board.username) {
       postHeader = (

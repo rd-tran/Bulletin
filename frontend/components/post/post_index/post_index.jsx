@@ -15,7 +15,6 @@ export default class PostIndex extends React.Component {
   componentDidMount() {
     this.props.fetchPosts(this.props.user.username);
   }
-
   
   setPost(post) {
     this.setState({ post: post }, () => this.props.openModal('edit'));
@@ -48,11 +47,11 @@ export default class PostIndex extends React.Component {
     let postItems;
     
     if (posts.length) {
-      postItems = posts.map( post => {
+      postItems = posts.map( (post, idx) => {
         const postComments = comments.filter( comment => (
           comment.post_id == post.id)
         );
-
+        
         return (
           <PostItemContainer
             key={post.id}
