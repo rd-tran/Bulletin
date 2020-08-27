@@ -32,7 +32,7 @@ class Api::PostsController < ApplicationController
     if current_user.username == post_params[:author_username]
       @post = Post.find_by(id: post_params[:id])
       @post.update(post_params)
-      render json: @post
+      render :update
     else
       render json: ["Can't edit this post"], status: 422
     end
